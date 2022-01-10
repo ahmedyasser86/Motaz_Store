@@ -7,18 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Motaz_Store.Visual_Scripts;
 
 namespace Motaz_Store
 {
     public partial class Store : Form
     {
-        Visual_Scripts scripts;
         public Store()
         {
             InitializeComponent();
+        }
 
-            scripts = new Visual_Scripts(pnl_Top, Color.FromArgb(242, 242, 242), Color.FromArgb(79, 108, 115));
-            scripts.OnBtnHover();
+        private void Top_Btns_CLick(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+
+            Btn_Click_Color(pnl_Top, new Color[] { Color.FromArgb(191, 113, 44), Color.FromArgb(242, 229, 213) },
+                new Color[] { Color.FromArgb(242, 229, 213), Color.FromArgb(89, 25, 2) }, btn);
         }
     }
 }

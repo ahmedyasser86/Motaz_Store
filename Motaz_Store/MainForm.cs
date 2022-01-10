@@ -8,41 +8,40 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Motaz_Store.Visual_Scripts;
+using static Motaz_Store.Forms;
 
 namespace Motaz_Store
 {
     public partial class MainForm : Form
     {
-        Visual_Scripts scripts;
         public MainForm()
         {
             InitializeComponent();
-
-            scripts = new Visual_Scripts(tlp_Buttons, Color.FromArgb(242, 241, 240), Color.FromArgb(191, 107, 4));
-
-            // Add Hover Events
-            scripts.OnBtnHover();
         }
 
-        private void TopBtnClick(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            var btn = sender as Control;
+            // Open Default Page
+            Btn_Sells.PerformClick();
+        }
 
-            // Change Color
-            scripts.OnBtnClick(btn);
+        private void Top_Buttons_Click(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+
+            Btn_Click_Color(tlp_Buttons, new Color[] { Color.FromArgb(89, 25, 2) }, new Color[] { Color.FromArgb(191, 113, 44) }
+            , btn);
 
             switch (btn.Name)
             {
-                case "lbl_Sells":
-                    FrmToPnl(pnl_Holder, Forms.sells);
+                case "Btn_Sells":
+                    FrmToPnl(pnl_Holder, sells);
                     break;
-
-                case "lbl_Store":
-                    FrmToPnl(pnl_Holder, Forms.store);
+                case "Btn_Store":
+                    FrmToPnl(pnl_Holder, store);
                     break;
-
-                case "lbl_Settings":
-                    FrmToPnl(pnl_Holder, Forms.settings);
+                case "Btn_Settings":
+                    FrmToPnl(pnl_Holder, settings);
                     break;
             }
         }

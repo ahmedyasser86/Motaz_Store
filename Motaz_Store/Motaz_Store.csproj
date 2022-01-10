@@ -73,7 +73,40 @@
     <Compile Include="Forms\Store\Store.Designer.cs">
       <DependentUpon>Store.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Sells\Sells_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sells\Sells_Add.Designer.cs">
+      <DependentUpon>Sells_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sells\Sells_Del.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sells\Sells_Del.Designer.cs">
+      <DependentUpon>Sells_Del.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sells\Sells_Today.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sells\Sells_Today.Designer.cs">
+      <DependentUpon>Sells_Today.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sells\Sells_View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sells\Sells_View.Designer.cs">
+      <DependentUpon>Sells_View.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visual_Scripts.cs" />
+    <EmbeddedResource Include="Forms\Sells\Sells_Del.resx">
+      <DependentUpon>Sells_Del.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sells\Sells_Today.resx">
+      <DependentUpon>Sells_Today.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sells\Sells_View.resx">
+      <DependentUpon>Sells_View.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +127,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\Sells\Sells.resx">
       <DependentUpon>Sells.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sells\Sells_Add.resx">
+      <DependentUpon>Sells_Add.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
