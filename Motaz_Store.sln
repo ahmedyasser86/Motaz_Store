@@ -5,11 +5,6 @@ VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motaz_Store", "Motaz_Store\Motaz_Store.csproj", "{0CF10CEB-664B-49DF-A4B1-032B5B1C1747}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{238F12FC-2918-4572-832D-AE4E1805FA32}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Desktop\Colors.txt = ..\..\..\Desktop\Colors.txt
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
