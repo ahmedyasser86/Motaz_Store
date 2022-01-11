@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms.cs" />
+    <Compile Include="Forms\Store\Store_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Store\Store_Add.Designer.cs">
+      <DependentUpon>Store_Add.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,30 @@
     <Compile Include="Forms\Sells\Sells_View.Designer.cs">
       <DependentUpon>Sells_View.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Store\Store_Del.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Store\Store_Del.Designer.cs">
+      <DependentUpon>Store_Del.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Store\Store_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Store\Store_Edit.Designer.cs">
+      <DependentUpon>Store_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Store\Store_View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Store\Store_View.Designer.cs">
+      <DependentUpon>Store_View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Store\Store_Other.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Store\Store_Other.Designer.cs">
+      <DependentUpon>Store_Other.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visual_Scripts.cs" />
     <EmbeddedResource Include="Forms\Sells\Sells_Del.resx">
       <DependentUpon>Sells_Del.cs</DependentUpon>
@@ -112,6 +142,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Store\Store.resx">
       <DependentUpon>Store.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Store\Store_Add.resx">
+      <DependentUpon>Store_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Store\Store_Del.resx">
+      <DependentUpon>Store_Del.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Store\Store_Edit.resx">
+      <DependentUpon>Store_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Store\Store_Other.resx">
+      <DependentUpon>Store_Other.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Store\Store_View.resx">
+      <DependentUpon>Store_View.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

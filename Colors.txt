@@ -1,6 +1,9 @@
 Green 45, 64, 59
 
 White 242, 229, 213
+Lighter 252, 246, 237
+Darker 230, 202, 168
+Darker 2 209, 178, 140
 
 Orange 191, 113, 44
 

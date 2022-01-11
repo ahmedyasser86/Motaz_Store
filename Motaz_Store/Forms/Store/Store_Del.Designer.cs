@@ -1,6 +1,6 @@
 ﻿namespace Motaz_Store
 {
-    partial class Sells_View
+    partial class Store_Del
     {
         /// <summary>
         /// Required designer variable.
@@ -36,10 +36,10 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(202)))), ((int)(((byte)(168)))));
-            this.panel1.Location = new System.Drawing.Point(808, 42);
+            this.panel1.Location = new System.Drawing.Point(824, 42);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(137, 3);
-            this.panel1.TabIndex = 5;
+            this.panel1.Size = new System.Drawing.Size(121, 3);
+            this.panel1.TabIndex = 3;
             // 
             // label1
             // 
@@ -48,14 +48,14 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(246)))), ((int)(((byte)(237)))));
             this.label1.Font = new System.Drawing.Font("Cairo", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
-            this.label1.Location = new System.Drawing.Point(808, 6);
+            this.label1.Location = new System.Drawing.Point(824, 6);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(137, 36);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "عرض المبيعات";
+            this.label1.Size = new System.Drawing.Size(121, 36);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "إرجاع منتجات";
             // 
-            // Sells_View
+            // Store_Del
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -67,8 +67,8 @@
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.Name = "Sells_View";
-            this.Text = "Sells_View";
+            this.Name = "Store_Del";
+            this.Text = "Store_Del";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,5 +78,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+
     }
 }

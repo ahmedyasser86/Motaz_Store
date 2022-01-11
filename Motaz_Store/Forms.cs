@@ -22,5 +22,11 @@ namespace Motaz_Store
 
 
         public static Store store = new Store() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+
+        public static Store_Add store_Add = new Store_Add() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+        public static Store_Del store_Del = new Store_Del() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+        public static Store_Edit store_Edit = new Store_Edit() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+        public static Store_View store_View = new Store_View() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+        public static Store_Other store_Other = new Store_Other() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
     }
 }
