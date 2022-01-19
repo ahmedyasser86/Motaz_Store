@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Motaz_Store.myDB;
 
 namespace Motaz_Store
 {
@@ -15,6 +16,15 @@ namespace Motaz_Store
         public Store_Add()
         {
             InitializeComponent();
+
+            // Make Selected Index of cBox Type
+            cbox_Type.SelectedIndex = 0;
+
+            // Get Colors From DB
+            cbox_Color.DataSource = GetDataArray("SELECT * FROM Colors");
+
+            // Focus txt_Art
+            txt_Art.Focus();
         }
 
         private void Rb_CheckedChanged(object sender, EventArgs e)
@@ -26,6 +36,7 @@ namespace Motaz_Store
                 RemoveReadOnly(txt_Des);
                 cbox_Type.Items.Clear();
                 cbox_Type.Items.Add("حذاء"); cbox_Type.Items.Add("إكسسوار");
+                cbox_Type.SelectedIndex = 0;
                 cbox_Type.BackColor = Color.FromArgb(255, 244, 230);
 
             }
@@ -50,6 +61,33 @@ namespace Motaz_Store
             txt.ReadOnly = false;
             txt.BackColor = Color.FromArgb(255, 244, 230);
             txt.Text = "";
+        }
+
+        private void rb_Size_CheckChanged(object sender, EventArgs e)
+        {
+            if (rb_SManual.Checked)
+            {
+                // Qty Not Manual
+                MakeReadOnly(txt_Qty, "0");
+
+                // Show Manual TextBox
+                pnl_SizeMan.Show();
+
+                // Hide Auto TextBox
+                pnl_SizeAuto.Hide();
+            }
+
+            else
+            {
+                // Qty Manual
+                RemoveReadOnly(txt_Qty);
+
+                // Hide Manual TextBox
+                pnl_SizeMan.Hide();
+
+                // Show Auto TextBox
+                pnl_SizeAuto.Show();
+            }
         }
     }
 }

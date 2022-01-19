@@ -17,8 +17,10 @@ namespace Motaz_Store
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            myDB.OpenConn();
             main = new MainForm();
             Application.Run(main);
+            myDB.CloseConn();
         }
     }
 }
