@@ -82,7 +82,39 @@ namespace Motaz_Store
                 Data.Add(r[0].ToString());
             }
 
+            r.Close();
+
             return Data;
+        }
+
+        public static int GetDataInt(string Query, string[] Params = null)
+        {
+            SqlCommand cmd = new SqlCommand(Query, conn);
+
+            if (Params != null)
+            {
+                for (int i = 0; i < Params.Length; i += 2)
+                {
+                    cmd.Parameters.AddWithValue(Params[i], Params[i + 1]);
+                }
+            }
+
+            return (Int32)(cmd.ExecuteScalar());
+        }
+
+        public static string GetDataString(string Query, string[] Params = null)
+        {
+            SqlCommand cmd = new SqlCommand(Query, conn);
+
+            if (Params != null)
+            {
+                for (int i = 0; i < Params.Length; i += 2)
+                {
+                    cmd.Parameters.AddWithValue(Params[i], Params[i + 1]);
+                }
+            }
+
+            return (string)(cmd.ExecuteScalar());
         }
 
         #endregion

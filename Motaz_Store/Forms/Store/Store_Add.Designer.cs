@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Btn_Add = new System.Windows.Forms.Button();
             this.pnl_Des = new System.Windows.Forms.Panel();
@@ -38,6 +36,20 @@
             this.panel17 = new System.Windows.Forms.Panel();
             this.txt_Des = new System.Windows.Forms.TextBox();
             this.pnl_Size = new System.Windows.Forms.Panel();
+            this.pnl_SizeAuto = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.txt_SizeTo = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.txt_SizeFrom = new System.Windows.Forms.TextBox();
+            this.pnl_SizeMan = new System.Windows.Forms.Panel();
+            this.pnl_Siz = new System.Windows.Forms.Panel();
+            this.txt_Size = new System.Windows.Forms.TextBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.rb_SAuto = new System.Windows.Forms.RadioButton();
+            this.rb_SManual = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.pnl_Qty = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -63,67 +75,37 @@
             this.cbox_Type = new System.Windows.Forms.ComboBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.rb_SAuto = new System.Windows.Forms.RadioButton();
-            this.rb_SManual = new System.Windows.Forms.RadioButton();
-            this.pnl_SizeMan = new System.Windows.Forms.Panel();
-            this.pnl_Siz = new System.Windows.Forms.Panel();
-            this.txt_Size = new System.Windows.Forms.TextBox();
-            this.pnl_SizeAuto = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.lbl_Error = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnl_Des.SuspendLayout();
             this.pnl_Size.SuspendLayout();
+            this.pnl_SizeAuto.SuspendLayout();
+            this.pnl_SizeMan.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.pnl_Qty.SuspendLayout();
             this.pnl_Price.SuspendLayout();
             this.pnl_Color.SuspendLayout();
             this.pnl_Art.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnl_Type.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.pnl_SizeMan.SuspendLayout();
-            this.pnl_SizeAuto.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lbl_Error);
+            this.panel1.Controls.Add(this.panel12);
             this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(957, 53);
             this.panel1.TabIndex = 8;
-            // 
-            // panel5
-            // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(202)))), ((int)(((byte)(168)))));
-            this.panel5.Location = new System.Drawing.Point(810, 45);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(135, 3);
-            this.panel5.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.label1.Font = new System.Drawing.Font("Cairo", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
-            this.label1.Location = new System.Drawing.Point(810, 9);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(135, 36);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "إضافة منتجات";
             // 
             // tableLayoutPanel1
             // 
@@ -168,6 +150,7 @@
             this.Btn_Add.TabIndex = 7;
             this.Btn_Add.Text = "إضافة";
             this.Btn_Add.UseVisualStyleBackColor = false;
+            this.Btn_Add.Click += new System.EventHandler(this.Btn_Add_Click);
             // 
             // pnl_Des
             // 
@@ -228,6 +211,175 @@
             this.pnl_Size.Size = new System.Drawing.Size(951, 53);
             this.pnl_Size.TabIndex = 5;
             // 
+            // pnl_SizeAuto
+            // 
+            this.pnl_SizeAuto.Controls.Add(this.label10);
+            this.pnl_SizeAuto.Controls.Add(this.panel16);
+            this.pnl_SizeAuto.Controls.Add(this.txt_SizeTo);
+            this.pnl_SizeAuto.Controls.Add(this.label9);
+            this.pnl_SizeAuto.Controls.Add(this.panel15);
+            this.pnl_SizeAuto.Controls.Add(this.txt_SizeFrom);
+            this.pnl_SizeAuto.Location = new System.Drawing.Point(289, 5);
+            this.pnl_SizeAuto.Name = "pnl_SizeAuto";
+            this.pnl_SizeAuto.Size = new System.Drawing.Size(271, 45);
+            this.pnl_SizeAuto.TabIndex = 17;
+            this.pnl_SizeAuto.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.label10.Font = new System.Drawing.Font("Cairo SemiBold", 17F, System.Drawing.FontStyle.Bold);
+            this.label10.Location = new System.Drawing.Point(71, -2);
+            this.label10.Name = "label10";
+            this.label10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label10.Size = new System.Drawing.Size(63, 43);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "إلى :";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel16
+            // 
+            this.panel16.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
+            this.panel16.Location = new System.Drawing.Point(-3, 41);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(68, 2);
+            this.panel16.TabIndex = 17;
+            // 
+            // txt_SizeTo
+            // 
+            this.txt_SizeTo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txt_SizeTo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.txt_SizeTo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_SizeTo.Font = new System.Drawing.Font("Cairo SemiBold", 17F, System.Drawing.FontStyle.Bold);
+            this.txt_SizeTo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
+            this.txt_SizeTo.Location = new System.Drawing.Point(-3, -2);
+            this.txt_SizeTo.Name = "txt_SizeTo";
+            this.txt_SizeTo.Size = new System.Drawing.Size(68, 43);
+            this.txt_SizeTo.TabIndex = 16;
+            this.txt_SizeTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.label9.Font = new System.Drawing.Font("Cairo SemiBold", 17F, System.Drawing.FontStyle.Bold);
+            this.label9.Location = new System.Drawing.Point(214, 0);
+            this.label9.Name = "label9";
+            this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label9.Size = new System.Drawing.Size(60, 43);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "من :";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel15
+            // 
+            this.panel15.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
+            this.panel15.Location = new System.Drawing.Point(140, 43);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(68, 2);
+            this.panel15.TabIndex = 14;
+            // 
+            // txt_SizeFrom
+            // 
+            this.txt_SizeFrom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txt_SizeFrom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.txt_SizeFrom.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_SizeFrom.Font = new System.Drawing.Font("Cairo SemiBold", 17F, System.Drawing.FontStyle.Bold);
+            this.txt_SizeFrom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
+            this.txt_SizeFrom.Location = new System.Drawing.Point(140, 0);
+            this.txt_SizeFrom.Name = "txt_SizeFrom";
+            this.txt_SizeFrom.Size = new System.Drawing.Size(68, 43);
+            this.txt_SizeFrom.TabIndex = 13;
+            this.txt_SizeFrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pnl_SizeMan
+            // 
+            this.pnl_SizeMan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnl_SizeMan.Controls.Add(this.pnl_Siz);
+            this.pnl_SizeMan.Controls.Add(this.txt_Size);
+            this.pnl_SizeMan.Location = new System.Drawing.Point(289, 5);
+            this.pnl_SizeMan.Name = "pnl_SizeMan";
+            this.pnl_SizeMan.Size = new System.Drawing.Size(271, 45);
+            this.pnl_SizeMan.TabIndex = 16;
+            // 
+            // pnl_Siz
+            // 
+            this.pnl_Siz.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnl_Siz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
+            this.pnl_Siz.Location = new System.Drawing.Point(0, 43);
+            this.pnl_Siz.Name = "pnl_Siz";
+            this.pnl_Siz.Size = new System.Drawing.Size(271, 2);
+            this.pnl_Siz.TabIndex = 14;
+            // 
+            // txt_Size
+            // 
+            this.txt_Size.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txt_Size.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.txt_Size.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Size.Font = new System.Drawing.Font("Cairo SemiBold", 17F, System.Drawing.FontStyle.Bold);
+            this.txt_Size.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
+            this.txt_Size.Location = new System.Drawing.Point(0, 0);
+            this.txt_Size.Name = "txt_Size";
+            this.txt_Size.Size = new System.Drawing.Size(271, 43);
+            this.txt_Size.TabIndex = 13;
+            this.txt_Size.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel8
+            // 
+            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(229)))), ((int)(((byte)(213)))));
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Controls.Add(this.rb_SAuto);
+            this.panel8.Controls.Add(this.rb_SManual);
+            this.panel8.Location = new System.Drawing.Point(693, 8);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(146, 37);
+            this.panel8.TabIndex = 15;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel9.Location = new System.Drawing.Point(0, 35);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(146, 2);
+            this.panel9.TabIndex = 4;
+            // 
+            // rb_SAuto
+            // 
+            this.rb_SAuto.AutoSize = true;
+            this.rb_SAuto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.rb_SAuto.FlatAppearance.BorderSize = 0;
+            this.rb_SAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rb_SAuto.Location = new System.Drawing.Point(75, 4);
+            this.rb_SAuto.Name = "rb_SAuto";
+            this.rb_SAuto.Size = new System.Drawing.Size(63, 28);
+            this.rb_SAuto.TabIndex = 1;
+            this.rb_SAuto.Text = "تلقائي";
+            this.rb_SAuto.UseVisualStyleBackColor = false;
+            this.rb_SAuto.CheckedChanged += new System.EventHandler(this.rb_Size_CheckChanged);
+            // 
+            // rb_SManual
+            // 
+            this.rb_SManual.AutoSize = true;
+            this.rb_SManual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.rb_SManual.Checked = true;
+            this.rb_SManual.FlatAppearance.BorderSize = 0;
+            this.rb_SManual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rb_SManual.Location = new System.Drawing.Point(8, 4);
+            this.rb_SManual.Name = "rb_SManual";
+            this.rb_SManual.Size = new System.Drawing.Size(56, 28);
+            this.rb_SManual.TabIndex = 0;
+            this.rb_SManual.TabStop = true;
+            this.rb_SManual.Text = "يدوي";
+            this.rb_SManual.UseVisualStyleBackColor = false;
+            this.rb_SManual.CheckedChanged += new System.EventHandler(this.rb_Size_CheckChanged);
+            // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -279,14 +431,16 @@
             // txt_Qty
             // 
             this.txt_Qty.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_Qty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.txt_Qty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(178)))), ((int)(((byte)(140)))));
             this.txt_Qty.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Qty.Font = new System.Drawing.Font("Cairo SemiBold", 17F, System.Drawing.FontStyle.Bold);
             this.txt_Qty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
             this.txt_Qty.Location = new System.Drawing.Point(289, 4);
             this.txt_Qty.Name = "txt_Qty";
+            this.txt_Qty.ReadOnly = true;
             this.txt_Qty.Size = new System.Drawing.Size(271, 43);
             this.txt_Qty.TabIndex = 4;
+            this.txt_Qty.Text = "0";
             this.txt_Qty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pnl_Price
@@ -539,173 +693,62 @@
             this.label2.Text = "النوع :";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel8
+            // label1
             // 
-            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(229)))), ((int)(((byte)(213)))));
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Controls.Add(this.rb_SAuto);
-            this.panel8.Controls.Add(this.rb_SManual);
-            this.panel8.Location = new System.Drawing.Point(693, 8);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(146, 37);
-            this.panel8.TabIndex = 15;
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.label1.Font = new System.Drawing.Font("Cairo", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
+            this.label1.Location = new System.Drawing.Point(109, 6);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(135, 36);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "إضافة منتجات";
             // 
-            // panel9
+            // panel10
             // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(0, 35);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(146, 2);
-            this.panel9.TabIndex = 4;
+            this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(202)))), ((int)(((byte)(168)))));
+            this.panel10.Location = new System.Drawing.Point(109, 42);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(135, 3);
+            this.panel10.TabIndex = 8;
             // 
-            // rb_SAuto
+            // panel5
             // 
-            this.rb_SAuto.AutoSize = true;
-            this.rb_SAuto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.rb_SAuto.FlatAppearance.BorderSize = 0;
-            this.rb_SAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rb_SAuto.Location = new System.Drawing.Point(75, 4);
-            this.rb_SAuto.Name = "rb_SAuto";
-            this.rb_SAuto.Size = new System.Drawing.Size(63, 28);
-            this.rb_SAuto.TabIndex = 1;
-            this.rb_SAuto.Text = "تلقائي";
-            this.rb_SAuto.UseVisualStyleBackColor = false;
-            this.rb_SAuto.CheckedChanged += new System.EventHandler(this.rb_Size_CheckChanged);
+            this.panel5.Controls.Add(this.panel10);
+            this.panel5.Controls.Add(this.label1);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel5.Location = new System.Drawing.Point(705, 0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(252, 53);
+            this.panel5.TabIndex = 0;
             // 
-            // rb_SManual
+            // panel12
             // 
-            this.rb_SManual.AutoSize = true;
-            this.rb_SManual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.rb_SManual.Checked = true;
-            this.rb_SManual.FlatAppearance.BorderSize = 0;
-            this.rb_SManual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rb_SManual.Location = new System.Drawing.Point(8, 4);
-            this.rb_SManual.Name = "rb_SManual";
-            this.rb_SManual.Size = new System.Drawing.Size(56, 28);
-            this.rb_SManual.TabIndex = 0;
-            this.rb_SManual.TabStop = true;
-            this.rb_SManual.Text = "يدوي";
-            this.rb_SManual.UseVisualStyleBackColor = false;
-            this.rb_SManual.CheckedChanged += new System.EventHandler(this.rb_Size_CheckChanged);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Margin = new System.Windows.Forms.Padding(0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(252, 53);
+            this.panel12.TabIndex = 1;
             // 
-            // pnl_SizeMan
+            // lbl_Error
             // 
-            this.pnl_SizeMan.Controls.Add(this.pnl_Siz);
-            this.pnl_SizeMan.Controls.Add(this.txt_Size);
-            this.pnl_SizeMan.Location = new System.Drawing.Point(289, 5);
-            this.pnl_SizeMan.Name = "pnl_SizeMan";
-            this.pnl_SizeMan.Size = new System.Drawing.Size(271, 45);
-            this.pnl_SizeMan.TabIndex = 16;
-            // 
-            // pnl_Siz
-            // 
-            this.pnl_Siz.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnl_Siz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
-            this.pnl_Siz.Location = new System.Drawing.Point(0, 43);
-            this.pnl_Siz.Name = "pnl_Siz";
-            this.pnl_Siz.Size = new System.Drawing.Size(271, 2);
-            this.pnl_Siz.TabIndex = 14;
-            // 
-            // txt_Size
-            // 
-            this.txt_Size.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_Size.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.txt_Size.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_Size.Font = new System.Drawing.Font("Cairo SemiBold", 17F, System.Drawing.FontStyle.Bold);
-            this.txt_Size.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
-            this.txt_Size.Location = new System.Drawing.Point(0, 0);
-            this.txt_Size.Name = "txt_Size";
-            this.txt_Size.Size = new System.Drawing.Size(271, 43);
-            this.txt_Size.TabIndex = 13;
-            this.txt_Size.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // pnl_SizeAuto
-            // 
-            this.pnl_SizeAuto.Controls.Add(this.label10);
-            this.pnl_SizeAuto.Controls.Add(this.panel16);
-            this.pnl_SizeAuto.Controls.Add(this.textBox3);
-            this.pnl_SizeAuto.Controls.Add(this.label9);
-            this.pnl_SizeAuto.Controls.Add(this.panel15);
-            this.pnl_SizeAuto.Controls.Add(this.textBox2);
-            this.pnl_SizeAuto.Location = new System.Drawing.Point(289, 5);
-            this.pnl_SizeAuto.Name = "pnl_SizeAuto";
-            this.pnl_SizeAuto.Size = new System.Drawing.Size(271, 45);
-            this.pnl_SizeAuto.TabIndex = 17;
-            this.pnl_SizeAuto.Visible = false;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Cairo SemiBold", 17F, System.Drawing.FontStyle.Bold);
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
-            this.textBox2.Location = new System.Drawing.Point(140, 0);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(68, 43);
-            this.textBox2.TabIndex = 13;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panel15
-            // 
-            this.panel15.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
-            this.panel15.Location = new System.Drawing.Point(140, 43);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(68, 2);
-            this.panel15.TabIndex = 14;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.label9.Font = new System.Drawing.Font("Cairo SemiBold", 17F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(214, 0);
-            this.label9.Name = "label9";
-            this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label9.Size = new System.Drawing.Size(60, 43);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "من :";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.label10.Font = new System.Drawing.Font("Cairo SemiBold", 17F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(71, -2);
-            this.label10.Name = "label10";
-            this.label10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label10.Size = new System.Drawing.Size(63, 43);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "إلى :";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel16
-            // 
-            this.panel16.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
-            this.panel16.Location = new System.Drawing.Point(-3, 41);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(68, 2);
-            this.panel16.TabIndex = 17;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Cairo SemiBold", 17F, System.Drawing.FontStyle.Bold);
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
-            this.textBox3.Location = new System.Drawing.Point(-3, -2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(68, 43);
-            this.textBox3.TabIndex = 16;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lbl_Error.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_Error.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Error.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(54)))), ((int)(((byte)(12)))));
+            this.lbl_Error.Location = new System.Drawing.Point(252, 0);
+            this.lbl_Error.Name = "lbl_Error";
+            this.lbl_Error.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbl_Error.Size = new System.Drawing.Size(453, 53);
+            this.lbl_Error.TabIndex = 17;
+            this.lbl_Error.Text = "يوجد خطأ هنا";
+            this.lbl_Error.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Error.Visible = false;
             // 
             // Store_Add
             // 
@@ -722,12 +765,17 @@
             this.Name = "Store_Add";
             this.Text = "Store_Add";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.pnl_Des.ResumeLayout(false);
             this.pnl_Des.PerformLayout();
             this.pnl_Size.ResumeLayout(false);
             this.pnl_Size.PerformLayout();
+            this.pnl_SizeAuto.ResumeLayout(false);
+            this.pnl_SizeAuto.PerformLayout();
+            this.pnl_SizeMan.ResumeLayout(false);
+            this.pnl_SizeMan.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.pnl_Qty.ResumeLayout(false);
             this.pnl_Qty.PerformLayout();
             this.pnl_Price.ResumeLayout(false);
@@ -740,12 +788,8 @@
             this.panel2.PerformLayout();
             this.pnl_Type.ResumeLayout(false);
             this.pnl_Type.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.pnl_SizeMan.ResumeLayout(false);
-            this.pnl_SizeMan.PerformLayout();
-            this.pnl_SizeAuto.ResumeLayout(false);
-            this.pnl_SizeAuto.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -753,8 +797,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button Btn_Add;
         private System.Windows.Forms.Panel pnl_Des;
@@ -794,12 +836,17 @@
         private System.Windows.Forms.Panel pnl_SizeAuto;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_SizeTo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_SizeFrom;
         private System.Windows.Forms.Panel pnl_SizeMan;
         private System.Windows.Forms.Panel pnl_Siz;
         private System.Windows.Forms.TextBox txt_Size;
+        private System.Windows.Forms.Label lbl_Error;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label1;
     }
 }
