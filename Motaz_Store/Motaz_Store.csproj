@@ -61,7 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms.cs" />
+    <Compile Include="Forms\Forms.cs" />
     <Compile Include="Forms\Store\Store_Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,7 +74,8 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="myDB.cs" />
+    <Compile Include="Scripts\Pro_Des.cs" />
+    <Compile Include="Scripts\myDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\Sells\Sells.cs">
@@ -143,7 +144,8 @@
     <Compile Include="Forms\Store\Store_Other.Designer.cs">
       <DependentUpon>Store_Other.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visual_Scripts.cs" />
+    <Compile Include="Scripts\Visual_Scripts.cs" />
+    <Compile Include="Sizes.cs" />
     <EmbeddedResource Include="Forms\Sells\Sells_Del.resx">
       <DependentUpon>Sells_Del.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,10 +210,10 @@
   <ItemGroup>
     <Content Include="Arts.txt" />
     <Content Include="myDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="myDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>myDB.mdf</DependentUpon>
     </Content>
     <Content Include="ToDo_List.txt" />
