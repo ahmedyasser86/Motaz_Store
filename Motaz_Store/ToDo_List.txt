@@ -1,1 +1,4 @@
-﻿
+﻿1- Show Error If UserAdmin In Store (Add, Del)
+
+2- All Avalable Products in Forward (Store_Del) x2
+3- Change Qty Algorisme

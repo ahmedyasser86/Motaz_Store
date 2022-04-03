@@ -477,7 +477,7 @@
             this.lbl_ShortQty.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lbl_ShortQty.Size = new System.Drawing.Size(130, 24);
             this.lbl_ShortQty.TabIndex = 18;
-            this.lbl_ShortQty.Text = "F8 : يدوي | F9 : تلقائي";
+            this.lbl_ShortQty.Text = "F8 : تلقائي | F9 : يدوي";
             this.lbl_ShortQty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_ShortQty.Visible = false;
             // 
@@ -532,12 +532,12 @@
             this.rb_SAuto.Checked = true;
             this.rb_SAuto.FlatAppearance.BorderSize = 0;
             this.rb_SAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rb_SAuto.Location = new System.Drawing.Point(75, 4);
+            this.rb_SAuto.Location = new System.Drawing.Point(81, 4);
             this.rb_SAuto.Name = "rb_SAuto";
-            this.rb_SAuto.Size = new System.Drawing.Size(63, 28);
+            this.rb_SAuto.Size = new System.Drawing.Size(56, 28);
             this.rb_SAuto.TabIndex = 1;
             this.rb_SAuto.TabStop = true;
-            this.rb_SAuto.Text = "تلقائي";
+            this.rb_SAuto.Text = "يدوي";
             this.rb_SAuto.UseVisualStyleBackColor = false;
             this.rb_SAuto.CheckedChanged += new System.EventHandler(this.rb_Size_CheckChanged);
             // 
@@ -547,11 +547,11 @@
             this.rb_SManual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
             this.rb_SManual.FlatAppearance.BorderSize = 0;
             this.rb_SManual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rb_SManual.Location = new System.Drawing.Point(8, 4);
+            this.rb_SManual.Location = new System.Drawing.Point(9, 4);
             this.rb_SManual.Name = "rb_SManual";
-            this.rb_SManual.Size = new System.Drawing.Size(56, 28);
+            this.rb_SManual.Size = new System.Drawing.Size(63, 28);
             this.rb_SManual.TabIndex = 0;
-            this.rb_SManual.Text = "يدوي";
+            this.rb_SManual.Text = "تلقائي";
             this.rb_SManual.UseVisualStyleBackColor = false;
             this.rb_SManual.CheckedChanged += new System.EventHandler(this.rb_Size_CheckChanged);
             // 

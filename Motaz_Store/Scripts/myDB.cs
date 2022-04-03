@@ -88,6 +88,35 @@ namespace Motaz_Store
             return Data;
         }
 
+        public static List<string> GetDataArray(string Query, int Columns, string[] Params = null)
+        {
+            List<string> Data = new List<string>();
+
+            SqlCommand cmd = new SqlCommand(Query, conn);
+
+            if (Params != null)
+            {
+                for (int i = 0; i < Params.Length; i += 2)
+                {
+                    cmd.Parameters.AddWithValue(Params[i], Params[i + 1]);
+                }
+            }
+
+            SqlDataReader r = cmd.ExecuteReader();
+
+            while (r.Read())
+            {
+                for(int i = 0; i < Columns; i++)
+                {
+                    Data.Add(r[i].ToString());
+                }
+            }
+
+            r.Close();
+
+            return Data;
+        }
+
         public static int GetDataInt(string Query, string[] Params = null)
         {
             SqlCommand cmd = new SqlCommand(Query, conn);
@@ -168,6 +197,82 @@ namespace Motaz_Store
                 return false;
             }
         }
+        #endregion
+
+        #region DGVs
+        public static void DGVs(string Query, DataGridView dgv, string[] Params = null)
+        {
+            SqlCommand cmd = new SqlCommand(Query, conn);
+
+            if (Params != null)
+            {
+                for (int i = 0; i < Params.Length; i += 2)
+                {
+                    cmd.Parameters.AddWithValue(Params[i], Params[i + 1]);
+                }
+            }
+
+            SqlDataAdapter ad = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            ad.Fill(dt);
+
+            dgv.DataSource = dt;
+        }
+        #endregion
+
+        #region Transaction
+        public class Transaction
+        {
+            private static SqlConnection conn2 = new SqlConnection(
+            @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\myDB.mdf;
+            Integrated Security=True");
+
+            List<SqlCommand> cmds = new List<SqlCommand>();
+
+            SqlTransaction trans = null;
+
+            public Transaction()
+            {
+                conn2.Open();
+                trans = conn2.BeginTransaction();
+            }
+
+            public void AddCmd(string Query)
+            {
+                cmds.Add(new SqlCommand(Query, conn2, trans));
+            }
+
+            public void AddCmd(string Query, string[] Params)
+            {
+                SqlCommand cmd = new SqlCommand(Query, conn2, trans);
+                for (int i = 0; i < Params.Length; i += 2)
+                {
+                    cmd.Parameters.AddWithValue(Params[i], Params[i + 1]);
+                }
+                cmds.Add(cmd);
+            }
+
+            public string StartTrans()
+            {
+                try
+                {
+                    foreach (SqlCommand cmd in cmds)
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    trans.Commit();
+                    conn2.Close();
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    trans.Rollback();
+                    conn2.Close();
+                    return e.Message;
+                }
+            }
+        };
         #endregion
 
         #endregion

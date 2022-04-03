@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Motaz_Store
 {
-    public class Forms
+    public static class Forms
     {
         // Sells
         public static Sells sells = new Sells() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };

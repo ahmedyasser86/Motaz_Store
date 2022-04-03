@@ -74,6 +74,7 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Msgs.cs" />
     <Compile Include="Scripts\Pro_Des.cs" />
     <Compile Include="Scripts\myDB.cs" />
     <Compile Include="Program.cs" />
@@ -145,7 +146,6 @@
       <DependentUpon>Store_Other.cs</DependentUpon>
     </Compile>
     <Compile Include="Scripts\Visual_Scripts.cs" />
-    <Compile Include="Sizes.cs" />
     <EmbeddedResource Include="Forms\Sells\Sells_Del.resx">
       <DependentUpon>Sells_Del.cs</DependentUpon>
     </EmbeddedResource>

@@ -16,5 +16,10 @@ namespace Motaz_Store
         {
             InitializeComponent();
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            myDB.DGVs(richTextBox1.Text, dataGridView1);
+        }
     }
 }
