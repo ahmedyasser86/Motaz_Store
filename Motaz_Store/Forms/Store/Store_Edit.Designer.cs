@@ -58,9 +58,9 @@
             this.Btn_Save = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.lbl_Price = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnl_Des.SuspendLayout();
             this.pnl_Discount.SuspendLayout();
@@ -458,6 +458,7 @@
             // 
             // panel8
             // 
+            this.panel8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel8.Controls.Add(this.lbl_Price);
             this.panel8.Controls.Add(this.label7);
             this.panel8.Controls.Add(this.label6);
@@ -467,31 +468,10 @@
             this.panel8.Size = new System.Drawing.Size(198, 31);
             this.panel8.TabIndex = 11;
             // 
-            // label6
-            // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label6.Location = new System.Drawing.Point(67, 0);
-            this.label6.Name = "label6";
-            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(131, 31);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "سعر البيع بعد الخصم :";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label7.Location = new System.Drawing.Point(0, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(17, 31);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "ج";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lbl_Price
             // 
+            this.lbl_Price.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_Price.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.lbl_Price.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_Price.Font = new System.Drawing.Font("Cairo SemiBold", 12F, System.Drawing.FontStyle.Bold);
             this.lbl_Price.Location = new System.Drawing.Point(17, 0);
             this.lbl_Price.Name = "lbl_Price";
@@ -499,6 +479,27 @@
             this.lbl_Price.TabIndex = 3;
             this.lbl_Price.Text = "000";
             this.lbl_Price.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(17, 31);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "ج";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.Location = new System.Drawing.Point(67, 0);
+            this.label6.Name = "label6";
+            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label6.Size = new System.Drawing.Size(131, 31);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "سعر البيع بعد الخصم :";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Store_Edit
             // 

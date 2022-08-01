@@ -72,20 +72,23 @@ namespace Motaz_Store
                     if (ch_Price.Checked)
                     {
                         RemoveReadOnly(txt_Price);
+                        txt_Price.Focus();
                     }
                     else
                     {
                         MakeReadOnly(txt_Price, 0);
+                        txt_Art.Focus();
                     }
                 }
                 else
                 {
                     ch_Price.Checked = false;
+                    txt_Art.Focus();
                 }
             };
 
             // --> txt Price
-            // Enter
+            // Enter TOEDIT
             txt_Price.KeyDown += (S, E) =>
             {
                 if(E.KeyCode == Keys.Enter)
@@ -100,8 +103,15 @@ namespace Motaz_Store
                 }
             };
             // Leave
-            // Change Leave to textChanged
             txt_Price.Leave += (S, E) =>
+            {
+                if(String.IsNullOrWhiteSpace(txt_Price.Text) || txt_Price.Text == Values[0])
+                {
+                    ch_Price.Checked = false;
+                }
+            };
+            // textChanged
+            txt_Price.TextChanged += (S, E) =>
             {
                 try
                 {
@@ -110,10 +120,104 @@ namespace Motaz_Store
                 }
                 catch
                 {
-                    txt_Price.Text = Values[0];
-                    msg.ShowError("السعر يجب أن يكون رقم صحيح");
+                    if(!String.IsNullOrWhiteSpace(txt_Price.Text))
+                    {
+                        txt_Price.Text = Values[0];
+                        msg.ShowError("السعر يجب أن يكون رقم صحيح");
+                    }
                 }
             };
+
+
+            // --> ch Dis
+            ch_Dis.CheckedChanged += (S, E) =>
+            {
+                if (!String.IsNullOrWhiteSpace(txt_Art.Text))
+                {
+                    if (ch_Dis.Checked)
+                    {
+                        RemoveReadOnly(txt_Discount);
+                        txt_Discount.Focus();
+                    }
+                    else
+                    {
+                        MakeReadOnly(txt_Discount, 1);
+                        txt_Art.Focus();
+                    }
+
+                }
+                else
+                {
+                    ch_Dis.Checked = false;
+                    txt_Art.Focus();
+                }
+            };
+
+            // --> txt Discount
+            // Enter TODO
+
+            // Leave
+            txt_Discount.Leave += (S, E) =>
+            {
+                if (String.IsNullOrWhiteSpace(txt_Discount.Text) || txt_Discount.Text == Values[1])
+                {
+                    ch_Dis.Checked = false;
+                }
+            };
+            // textChanged
+            txt_Discount.TextChanged += (S, E) =>
+            {
+                try
+                {
+                    Convert.ToInt32(txt_Discount.Text);
+                    lbl_Price.Text = (Convert.ToInt32(txt_Price.Text) - Convert.ToInt32(txt_Discount.Text)).ToString();
+                }
+                catch
+                {
+                    if (!String.IsNullOrWhiteSpace(txt_Discount.Text))
+                    {
+                        txt_Discount.Text = Values[1];
+                        msg.ShowError("السعر يجب أن يكون رقم صحيح");
+                    }
+                }
+            };
+
+            // --> ch Des
+            ch_Des.CheckedChanged += (S, E) =>
+            {
+                if (!String.IsNullOrWhiteSpace(txt_Art.Text))
+                {
+                    if (ch_Des.Checked)
+                    {
+                        RemoveReadOnly(txt_Des);
+                        txt_Des.Focus();
+                    }
+                    else
+                    {
+                        MakeReadOnly(txt_Des, 2);
+                        txt_Art.Focus();
+                    }
+
+                }
+                else
+                {
+                    ch_Des.Checked = false;
+                    txt_Art.Focus();
+                }
+            };
+
+            // --> txt Des
+            // Enter TODO
+
+            // Leave
+            txt_Des.Leave += (S, E) =>
+            {
+                if (String.IsNullOrWhiteSpace(txt_Des.Text) || txt_Des.Text == Values[2])
+                {
+                    ch_Des.Checked = false;
+                }
+            };
+
             #endregion
         }
 

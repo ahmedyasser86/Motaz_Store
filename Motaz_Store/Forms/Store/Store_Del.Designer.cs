@@ -120,7 +120,7 @@
             // 
             // btn_AllSizes
             // 
-            this.btn_AllSizes.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_AllSizes.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btn_AllSizes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
             this.btn_AllSizes.FlatAppearance.BorderSize = 0;
             this.btn_AllSizes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(178)))), ((int)(((byte)(140)))));
@@ -233,6 +233,7 @@
             // 
             // ch_All
             // 
+            this.ch_All.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ch_All.AutoSize = true;
             this.ch_All.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ch_All.Font = new System.Drawing.Font("Cairo SemiBold", 10F, System.Drawing.FontStyle.Bold);

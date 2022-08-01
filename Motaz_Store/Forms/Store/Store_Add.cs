@@ -567,8 +567,16 @@ namespace Motaz_Store
                 }
                 else
                 {
-                    trans.AddCmd("INSERT INTO Products_Prices(Art, Price, Descount, Des) VALUES('" + txt_Art.Text +
-                        "', " + txt_Price.Text + ", 0, N'" + txt_Des.Text + "')");
+                    // Get First Prist
+                    // TODO: F_Price Rate Based On UserValue
+                    int F_Price = Convert.ToInt32(txt_Price.Text) * 2 / 3;
+                    // Round it to 5
+                    while(F_Price % 5 != 0)
+                    {
+                        F_Price++;
+                    }
+                    trans.AddCmd("INSERT INTO Products_Prices(Art, Price, Descount, Des, F_Price) VALUES('" + txt_Art.Text +
+                        "', " + txt_Price.Text + ", 0, N'" + txt_Des.Text + "', " + F_Price + ")");
                 }
                 #endregion
 
