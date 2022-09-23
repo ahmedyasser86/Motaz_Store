@@ -24,7 +24,7 @@ namespace Motaz_Store
                 Des += FWords[i] + " ";
             }
             else
-                return "Error";
+                return "غير معروف";
 
             i = Array.FindIndex(SChars, v => v.Equals(Char.ToUpper(parameter[1])));
             if (i != -1)
@@ -32,9 +32,37 @@ namespace Motaz_Store
                 Des += SWords[i];
             }
             else
-                return "Error";
+                return "غير معروف";
 
             return Des;
+        }
+
+        public static List<string> GetAllDes()
+        {
+            List<string> all = new List<string>();
+
+            all.Add("الجميع");
+
+            foreach(string s1 in FWords)
+            {
+                foreach(string s2 in SWords)
+                {
+                    all.Add(s1 + " " + s2);
+                }
+            }
+
+            return all;
+        }
+
+        public static string GetChars(string parameter)
+        {
+            string[] words = parameter.Split(' ');
+            string word = null;
+            int i = Array.FindIndex(FWords, v => v.Equals(words[0]));
+            word += FChars[i];
+            i = Array.FindIndex(SWords, v => v.Equals(words[1]));
+            word += SChars[i];
+            return word;
         }
     }
 }

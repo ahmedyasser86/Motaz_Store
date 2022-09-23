@@ -1,0 +1,11 @@
+﻿- Get Product Details for add sell
+SELECT p.ID ID, p.Art Art, p.Color Color, p.Size size, pp.Price Price, pp.Descount Dis, pp.Des Des,  (p.Qty - ISNULL(s.QTY, 0) - ISNULL(w.Qty, 0) - ISNULL(o.Qty, 0)) Qty  FROM Products p LEFT JOIN Sells s ON p.ID = s.P_ID LEFT JOIN WithDraws w ON p.ID = w.P_ID LEFT JOIN Products_Prices pp ON p.Art = pp.Art LEFT JOIN Online o ON p.ID = o.P_ID WHERE p.ID=@id
+
+- Get Bill's Products
+SELECT s.P_ID P_ID, s.Price Price, s.QTY Qty, s.Discount Dis, s.inDay s_inDay, b.Seller, p.Art Art, p.Color Color, p.Size Size, pp.Des Des FROM Sells s LEFT JOIN Products p ON s.P_ID = p.ID LEFT JOIN Products_Prices pp ON p.Art = pp.Art WHERE s.B_ID = @B_ID
+
+- Store small
+SELECT pp.Des الوصف, pp.Art الأرتكل, p.Color اللون, SUM((p.Qty - ISNULL(s.QTY, 0) - ISNULL(w.Qty, 0) - ISNULL(o.Qty, 0))) الكمية, AVG((pp.Price - pp.Descount)) 'سعر البيع', pp.Sup المورد FROM Products_Prices pp LEFT JOIN Products p ON p.Art = pp.Art LEFT JOIN Online o ON o.P_ID = p.ID LEFT JOIN Sells s ON s.P_ID = p.ID LEFT JOIN WithDraws w ON w.P_ID = p.ID WHERE (p.Qty - ISNULL(s.QTY, 0) - ISNULL(w.Qty, 0) - ISNULL(o.Qty, 0)) != 0 GROUP BY p.Color, pp.Art, pp.Des, pp.Sup
+
+- Store full
+SELECT p.ID كود, pp.Des الوصف, pp.Art الأرتكل, p.Color اللون, p.Size المقاس,(p.Qty - ISNULL(s.QTY, 0) - ISNULL(w.Qty, 0) - ISNULL(o.Qty, 0)) الكمية, (pp.Price - pp.Descount) 'سعر البيع', pp.Sup المورد FROM Products_Prices pp LEFT JOIN Products p ON p.Art = pp.Art LEFT JOIN Online o ON o.P_ID = p.ID LEFT JOIN Sells s ON s.P_ID = p.ID LEFT JOIN WithDraws w ON w.P_ID = p.ID

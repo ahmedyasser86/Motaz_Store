@@ -15,6 +15,7 @@ namespace Motaz_Store
     {
         Msgs msg;
         List<string> Values = new List<string>();
+        string art = null;
         public Store_Edit()
         {
             InitializeComponent();
@@ -24,6 +25,9 @@ namespace Motaz_Store
 
             // Focus txtArt
             txt_Art.Focus();
+
+            if (Session.isManager)
+                txt_FPrice.PasswordChar = '\0';
 
             #region Txts EnterClicks & Leave
             // --> txt Art
@@ -41,15 +45,19 @@ namespace Motaz_Store
             {
                 if(!String.IsNullOrWhiteSpace(txt_Art.Text))
                 {
-                    Values = GetDataArray("SELECT Price, Descount, Des FROM Products_Prices WHERE Art=@Art",
-                        3, new string[] { "@Art", txt_Art.Text });
+                    if (txt_Art.Text == art) return;
+
+                    Values = GetDataArray("SELECT Price, Descount, Des, F_Price FROM Products_Prices WHERE Art=@Art",
+                        4, new string[] { "@Art", txt_Art.Text });
 
                     if(Values.Count > 0)
                     {
                         txt_Price.Text = Values[0];
                         txt_Discount.Text = Values[1];
                         txt_Des.Text = Values[2];
+                        txt_FPrice.Text = Values[3];
                         lbl_Price.Text = (Convert.ToInt32(txt_Price.Text) - Convert.ToInt32(txt_Discount.Text)).ToString();
+                        art = txt_Art.Text;
                     }
                     else
                     {
@@ -77,7 +85,7 @@ namespace Motaz_Store
                     else
                     {
                         MakeReadOnly(txt_Price, 0);
-                        txt_Art.Focus();
+                        // txt_Art.Focus();
                     }
                 }
                 else
@@ -88,14 +96,14 @@ namespace Motaz_Store
             };
 
             // --> txt Price
-            // Enter TOEDIT
+            // Enter
             txt_Price.KeyDown += (S, E) =>
             {
-                if(E.KeyCode == Keys.Enter)
+                if(E.KeyCode == Keys.Enter && !String.IsNullOrWhiteSpace(txt_Art.Text))
                 {
                     txt_Discount.Focus();
                 }
-                else if(E.KeyCode == Keys.F8 && !String.IsNullOrWhiteSpace(txt_Art.Text))
+                else if(E.KeyCode == Keys.F8)
                 {
                     if (ch_Price.Checked)
                         ch_Price.Checked = false;
@@ -105,6 +113,8 @@ namespace Motaz_Store
             // Leave
             txt_Price.Leave += (S, E) =>
             {
+                if (String.IsNullOrWhiteSpace(txt_Art.Text)) return;
+
                 if(String.IsNullOrWhiteSpace(txt_Price.Text) || txt_Price.Text == Values[0])
                 {
                     ch_Price.Checked = false;
@@ -142,7 +152,7 @@ namespace Motaz_Store
                     else
                     {
                         MakeReadOnly(txt_Discount, 1);
-                        txt_Art.Focus();
+                        // txt_Art.Focus();
                     }
 
                 }
@@ -154,11 +164,26 @@ namespace Motaz_Store
             };
 
             // --> txt Discount
-            // Enter TODO
+            // Enter
+            txt_Discount.KeyDown += (S, E) =>
+            {
+                if (E.KeyCode == Keys.Enter && !String.IsNullOrWhiteSpace(txt_Art.Text))
+                {
+                    txt_Des.Focus();
+                }
+                else if (E.KeyCode == Keys.F8)
+                {
+                    if (ch_Dis.Checked)
+                        ch_Dis.Checked = false;
+                    else ch_Dis.Checked = true;
+                }
+            };
 
             // Leave
             txt_Discount.Leave += (S, E) =>
             {
+                if (String.IsNullOrWhiteSpace(txt_Art.Text)) return;
+
                 if (String.IsNullOrWhiteSpace(txt_Discount.Text) || txt_Discount.Text == Values[1])
                 {
                     ch_Dis.Checked = false;
@@ -195,7 +220,7 @@ namespace Motaz_Store
                     else
                     {
                         MakeReadOnly(txt_Des, 2);
-                        txt_Art.Focus();
+                        // txt_Art.Focus();
                     }
 
                 }
@@ -207,14 +232,96 @@ namespace Motaz_Store
             };
 
             // --> txt Des
-            // Enter TODO
+            // Enter
+            txt_Des.KeyDown += (S, E) =>
+            {
+                if (E.KeyCode == Keys.Enter && !String.IsNullOrWhiteSpace(txt_Art.Text))
+                {
+                    txt_FPrice.Focus();
+                }
+                else if (E.KeyCode == Keys.F8)
+                {
+                    if (ch_Des.Checked)
+                        ch_Des.Checked = false;
+                    else ch_Des.Checked = true;
+                }
+            };
 
             // Leave
             txt_Des.Leave += (S, E) =>
             {
+                if (String.IsNullOrWhiteSpace(txt_Art.Text)) return;
+
                 if (String.IsNullOrWhiteSpace(txt_Des.Text) || txt_Des.Text == Values[2])
                 {
                     ch_Des.Checked = false;
+                }
+            };
+
+            // --> ch F_Price
+            ch_FPrice.CheckedChanged += (S, E) =>
+              {
+                  if (!String.IsNullOrWhiteSpace(txt_Art.Text))
+                  {
+                      if (ch_FPrice.Checked)
+                      {
+                          RemoveReadOnly(txt_FPrice);
+                          txt_FPrice.Focus();
+                      }
+                      else
+                      {
+                          MakeReadOnly(txt_FPrice, 3);
+                          // txt_FPrice.Focus();
+                      }
+
+                  }
+                  else
+                  {
+                      ch_FPrice.Checked = false;
+                      txt_Art.Focus();
+                  }
+              };
+
+            // --> txt F_Price
+            // Enter
+            txt_FPrice.KeyDown += (S, E) =>
+            {
+                if (E.KeyCode == Keys.Enter && !String.IsNullOrWhiteSpace(txt_Art.Text))
+                {
+                    Btn_Save.Focus();
+                    Btn_Save.PerformClick();
+                }
+                else if (E.KeyCode == Keys.F8)
+                {
+                    if (ch_FPrice.Checked)
+                        ch_FPrice.Checked = false;
+                    else ch_FPrice.Checked = true;
+                }
+            };
+            // TextChanged
+            txt_FPrice.TextChanged += (S, E) =>
+            {
+                try
+                {
+                    Convert.ToInt32(txt_FPrice.Text);
+                }
+                catch
+                {
+                    if (!String.IsNullOrWhiteSpace(txt_FPrice.Text))
+                    {
+                        txt_FPrice.Text = Values[3];
+                        msg.ShowError("السعر يجب أن يكون رقم صحيح");
+                    }
+                }
+            };
+            // Leave
+            txt_FPrice.Leave += (S, E) =>
+            {
+                if (String.IsNullOrWhiteSpace(txt_Art.Text)) return;
+
+                if (String.IsNullOrWhiteSpace(txt_FPrice.Text) || txt_FPrice.Text == Values[3])
+                {
+                    ch_FPrice.Checked = false;
                 }
             };
 
@@ -235,7 +342,29 @@ namespace Motaz_Store
 
         private void Btn_Save_Click(object sender, EventArgs e)
         {
+            if(ch_FPrice.Checked || ch_Price.Checked || ch_Des.Checked || ch_Dis.Checked)
+            {
+                if(CmdExcute("UPDATE Products_Prices SET Price=" + txt_Price.Text
+                    + ", F_Price=" + txt_FPrice.Text + ", Descount=" + txt_Discount.Text
+                    + ", Des=N'" + txt_Des.Text + "' WHERE Art=@Art", new string[] { "@Art", txt_Art.Text }))
+                {
+                    msg.ShowError("تم تعديل بيانات المنتج بنجاح", true);
+                }
+            }
+            ch_FPrice.Checked = false;
+            ch_Price.Checked = false;
+            ch_Des.Checked = false;
+            ch_Dis.Checked = false;
 
+            txt_Art.Text = "";
+            art = "";
+            txt_Des.Text = "";
+            txt_Discount.Text = "0";
+            txt_FPrice.Text = "0";
+            txt_Price.Text = "0";
+            Values.Clear();
+
+            txt_Art.Focus();
         }
     }
 }

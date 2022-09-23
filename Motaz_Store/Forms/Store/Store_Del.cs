@@ -224,7 +224,7 @@ namespace Motaz_Store
             }
             else
             {
-                // TODO : Get all avalable From Store
+                // TODO: Get all avalable From Store
             }
             #endregion
 

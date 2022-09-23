@@ -435,7 +435,6 @@
         private System.Windows.Forms.Panel pnl_Price;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.TextBox txt_Art;
         private System.Windows.Forms.Button Btn_Forward;
         private System.Windows.Forms.ComboBox cbox_Color;
         private System.Windows.Forms.Panel panel4;
@@ -445,5 +444,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_Qty;
+        public System.Windows.Forms.TextBox txt_Art;
     }
 }

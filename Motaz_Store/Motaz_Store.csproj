@@ -48,8 +48,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="IronBarCode, Version=2022.9.8982.0, Culture=neutral, PublicKeyToken=b971bb3971bdf306, processorArchitecture=MSIL">
+      <HintPath>..\packages\BarCode.2022.9.8982\lib\net462\IronBarCode.dll</HintPath>
+    </Reference>
+    <Reference Include="IronSoftware.Drawing.Common, Version=2022.9.0.8843, Culture=neutral, PublicKeyToken=8d7e55c97b3e9835, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronSoftware.System.Drawing.2022.9.8843\lib\netstandard2.0\IronSoftware.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.ImageSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\packages\SixLabors.ImageSharp.2.1.3\lib\net472\SixLabors.ImageSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.6.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.5.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,7 +92,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Forms.cs" />
+    <Compile Include="Forms\Sells\EndDay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sells\EndDay.Designer.cs">
+      <DependentUpon>EndDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Forms.cs" />
     <Compile Include="Forms\Store\Store_Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,7 +111,44 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Msgs.cs" />
+    <Compile Include="Scripts\Msgs.cs" />
+    <Compile Include="Forms\LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Password.Designer.cs">
+      <DependentUpon>Password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSets\BarCode.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BarCode.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Reports\BarCode.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BarCode.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Reports\Receipt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Receipt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DataSets\Receipt.cs">
+      <DependentUpon>Receipt.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSets\Receipt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Receipt.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Scripts\Pro_Des.cs" />
     <Compile Include="Scripts\myDB.cs" />
     <Compile Include="Program.cs" />
@@ -146,8 +220,54 @@
       <DependentUpon>Store_Other.cs</DependentUpon>
     </Compile>
     <Compile Include="Scripts\Visual_Scripts.cs" />
+    <Compile Include="Classes\Session.cs" />
+    <Compile Include="Forms\Settings\Settings_General.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings\Settings_General.Designer.cs">
+      <DependentUpon>Settings_General.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Settings\Settings_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings\Settings_User.Designer.cs">
+      <DependentUpon>Settings_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Settings\Settings_Adv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings\Settings_Adv.Designer.cs">
+      <DependentUpon>Settings_Adv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Settings\Settings_Bika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings\Settings_Bika.Designer.cs">
+      <DependentUpon>Settings_Bika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sells\Sells_Online.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sells\Sells_Online.Designer.cs">
+      <DependentUpon>Sells_Online.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sells\Sells_Agel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sells\Sells_Agel.Designer.cs">
+      <DependentUpon>Sells_Agel.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Password.resx">
+      <DependentUpon>Password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sells\EndDay.resx">
+      <DependentUpon>EndDay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sells\Sells_Del.resx">
       <DependentUpon>Sells_Del.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sells\Sells_Online.resx">
+      <DependentUpon>Sells_Online.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sells\Sells_Today.resx">
       <DependentUpon>Sells_Today.cs</DependentUpon>
@@ -157,6 +277,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings\Settings_Adv.resx">
+      <DependentUpon>Settings_Adv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings\Settings_General.resx">
+      <DependentUpon>Settings_General.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings\Settings_User.resx">
+      <DependentUpon>Settings_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Store\Store.resx">
       <DependentUpon>Store.cs</DependentUpon>
@@ -179,6 +308,9 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -187,6 +319,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Forms\Sells\Sells.resx">
       <DependentUpon>Sells.cs</DependentUpon>
@@ -194,6 +327,15 @@
     <EmbeddedResource Include="Forms\Sells\Sells_Add.resx">
       <DependentUpon>Sells_Add.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Reports\BarCode.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BarCode.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Reports\Receipt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Receipt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -216,6 +358,30 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>myDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Queries.txt" />
+    <None Include="Reports\DataSets\BarCode.xsc">
+      <DependentUpon>BarCode.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSets\BarCode.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BarCode.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\DataSets\BarCode.xss">
+      <DependentUpon>BarCode.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSets\Receipt.xsc">
+      <DependentUpon>Receipt.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSets\Receipt.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Receipt.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\DataSets\Receipt.xss">
+      <DependentUpon>Receipt.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\Motaz-cover.jpg" />
     <Content Include="ToDo_List.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +395,10 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

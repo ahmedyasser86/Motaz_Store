@@ -30,6 +30,8 @@
         {
             this.pnl_Top = new System.Windows.Forms.Panel();
             this.btn_View = new System.Windows.Forms.Button();
+            this.btn_Agel = new System.Windows.Forms.Button();
+            this.btn_Online = new System.Windows.Forms.Button();
             this.btn_Today = new System.Windows.Forms.Button();
             this.btn_Del = new System.Windows.Forms.Button();
             this.btn_Add = new System.Windows.Forms.Button();
@@ -42,6 +44,8 @@
             // 
             this.pnl_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(113)))), ((int)(((byte)(44)))));
             this.pnl_Top.Controls.Add(this.btn_View);
+            this.pnl_Top.Controls.Add(this.btn_Agel);
+            this.pnl_Top.Controls.Add(this.btn_Online);
             this.pnl_Top.Controls.Add(this.btn_Today);
             this.pnl_Top.Controls.Add(this.btn_Del);
             this.pnl_Top.Controls.Add(this.btn_Add);
@@ -62,13 +66,52 @@
             this.btn_View.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_View.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_View.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(229)))), ((int)(((byte)(213)))));
-            this.btn_View.Location = new System.Drawing.Point(509, 0);
+            this.btn_View.Location = new System.Drawing.Point(340, 0);
             this.btn_View.Name = "btn_View";
             this.btn_View.Size = new System.Drawing.Size(136, 39);
             this.btn_View.TabIndex = 3;
             this.btn_View.Text = "عرض المبيعات";
             this.btn_View.UseVisualStyleBackColor = true;
+            this.btn_View.Visible = false;
             this.btn_View.Click += new System.EventHandler(this.Top_Btns_CLick);
+            // 
+            // btn_Agel
+            // 
+            this.btn_Agel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_Agel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(6)))), ((int)(((byte)(38)))));
+            this.btn_Agel.FlatAppearance.BorderSize = 0;
+            this.btn_Agel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(71)))), ((int)(((byte)(31)))));
+            this.btn_Agel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(71)))), ((int)(((byte)(31)))));
+            this.btn_Agel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Agel.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Agel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(229)))), ((int)(((byte)(213)))));
+            this.btn_Agel.Location = new System.Drawing.Point(476, 0);
+            this.btn_Agel.Name = "btn_Agel";
+            this.btn_Agel.Size = new System.Drawing.Size(75, 39);
+            this.btn_Agel.TabIndex = 5;
+            this.btn_Agel.Text = "الأجل";
+            this.btn_Agel.UseVisualStyleBackColor = true;
+            this.btn_Agel.Visible = false;
+            this.btn_Agel.Click += new System.EventHandler(this.Top_Btns_CLick);
+            // 
+            // btn_Online
+            // 
+            this.btn_Online.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_Online.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(6)))), ((int)(((byte)(38)))));
+            this.btn_Online.FlatAppearance.BorderSize = 0;
+            this.btn_Online.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(71)))), ((int)(((byte)(31)))));
+            this.btn_Online.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(71)))), ((int)(((byte)(31)))));
+            this.btn_Online.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Online.Font = new System.Drawing.Font("Cairo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Online.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(229)))), ((int)(((byte)(213)))));
+            this.btn_Online.Location = new System.Drawing.Point(551, 0);
+            this.btn_Online.Name = "btn_Online";
+            this.btn_Online.Size = new System.Drawing.Size(94, 39);
+            this.btn_Online.TabIndex = 4;
+            this.btn_Online.Text = "الأون لاين";
+            this.btn_Online.UseVisualStyleBackColor = true;
+            this.btn_Online.Visible = false;
+            this.btn_Online.Click += new System.EventHandler(this.Top_Btns_CLick);
             // 
             // btn_Today
             // 
@@ -102,7 +145,7 @@
             this.btn_Del.Name = "btn_Del";
             this.btn_Del.Size = new System.Drawing.Size(107, 39);
             this.btn_Del.TabIndex = 1;
-            this.btn_Del.Text = "إرجاع بيعة";
+            this.btn_Del.Text = "تعديل بيعة";
             this.btn_Del.UseVisualStyleBackColor = true;
             this.btn_Del.Click += new System.EventHandler(this.Top_Btns_CLick);
             // 
@@ -166,11 +209,13 @@
         #endregion
 
         private System.Windows.Forms.Panel pnl_Top;
-        private System.Windows.Forms.Button btn_View;
-        private System.Windows.Forms.Button btn_Today;
-        private System.Windows.Forms.Button btn_Del;
-        private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.Panel Pnl_Holder;
         private System.Windows.Forms.Panel pnl_Line;
+        public System.Windows.Forms.Button btn_View;
+        public System.Windows.Forms.Button btn_Today;
+        public System.Windows.Forms.Button btn_Del;
+        public System.Windows.Forms.Button btn_Add;
+        public System.Windows.Forms.Button btn_Agel;
+        public System.Windows.Forms.Button btn_Online;
     }
 }

@@ -9,17 +9,25 @@ namespace Motaz_Store
     public static class Program
     {
         public static MainForm main;
+        public static LogIn logIn;
+        public static string Backup;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            myDB.OpenConn();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            myDB.OpenConn();
-            main = new MainForm();
-            Application.Run(main);
+            logIn = new LogIn();
+            Application.Run(logIn);
+            if(Session.username != null)
+            {
+                main = new MainForm();
+                Application.Run(main);
+                myDB.BackUp(Backup);
+            }
             myDB.CloseConn();
         }
     }

@@ -17,6 +17,9 @@ namespace Motaz_Store
         public Sells()
         {
             InitializeComponent();
+
+            if (!Session.isManager)
+                btn_View.Hide();
         }
 
         private void Sells_Load(object sender, EventArgs e)
@@ -36,18 +39,35 @@ namespace Motaz_Store
             switch (btn.Name)
             {
                 case "btn_Add":
-                    FrmToPnl(Pnl_Holder, sells_Add);
+                    FrmToPnl(Pnl_Holder, sells_Add, sells_Add.txt_Code, sells_Add.txt_Art);
                     break;
                 case "btn_Del":
-                    FrmToPnl(Pnl_Holder, sells_Del);
+                    FrmToPnl(Pnl_Holder, sells_Del, sells_Del.txt_BillID);
                     break;
                 case "btn_Today":
-                    FrmToPnl(Pnl_Holder, sells_Today);
+                    password.frm = "Today";
+                    FrmToPnl(Pnl_Holder, password, password.txt_Password);
                     break;
                 case "btn_View":
                     FrmToPnl(Pnl_Holder, sells_View);
                     break;
+                case "btn_Online":
+                    FrmToPnl(Pnl_Holder, sells_Online);
+                    break;
+                case "btn_Agel":
+                    FrmToPnl(Pnl_Holder, sells_Agel);
+                    break;
             }
+        }
+
+        public void OpenToday()
+        {
+            FrmToPnl(Pnl_Holder, sells_Today, sells_Today.txt_Ex);
+        }
+
+        public void OpenEndDay()
+        {
+            FrmToPnl(Pnl_Holder, endDay);
         }
     }
 }

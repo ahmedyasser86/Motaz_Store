@@ -35,19 +35,19 @@ namespace Motaz_Store
             switch (btn.Name)
             {
                 case "btn_Add":
-                    FrmToPnl(pnl_Holder, store_Add);
+                    FrmToPnl(pnl_Holder, store_Add, store_Add.txt_Art);
                     break;
                 case "btn_Del":
-                    FrmToPnl(pnl_Holder, store_Del);
+                    FrmToPnl(pnl_Holder, store_Del, store_Del.txt_Art);
                     break;
                 case "btn_Edit":
-                    FrmToPnl(pnl_Holder, store_Edit);
+                    FrmToPnl(pnl_Holder, store_Edit, store_Edit.txt_Art);
                     break;
                 case "btn_View":
-                    FrmToPnl(pnl_Holder, store_View);
+                    FrmToPnl(pnl_Holder, store_View, store_View.txt_Art);
                     break;
                 case "btn_Other":
-                    FrmToPnl(pnl_Holder, store_Other);
+                    FrmToPnl(pnl_Holder, store_Other, store_Other.txt_sCode, store_Other.txt_sArt);
                     break;
             }
         }

@@ -15,26 +15,11 @@ namespace Motaz_Store
 
     public partial class Store_Add : Form
     {
-        public class Sizes
-        {
-            public
-            int Size,
-            Qty = 0;
-
-            public Sizes(int s, int q = 1)
-            {
-                Size = s;
-                Qty = q;
-            }
-        }
         List<int> ManSizes = new List<int>();
         Msgs msg;
         public Store_Add()
         {
             InitializeComponent();
-
-            // Make Selected Index of cBox Type
-            cbox_Type.SelectedIndex = 0;
 
             // Focus txt_Art
             txt_Art.Focus();
@@ -47,18 +32,6 @@ namespace Motaz_Store
 
             #region Txts EnterClicks & Leave
             // ---> Txts EnterClicks & Leave
-
-            // --> Type
-            // EnterClick
-            cbox_Type.KeyDown += (S, E) =>
-            {
-                if (E.KeyCode == Keys.Enter)
-                {
-                    txt_Art.Focus();
-                }
-            };
-            // Leave
-            // NoThing TODO.
 
             // --> Art
             // EnterClick
@@ -95,10 +68,9 @@ namespace Motaz_Store
                             txt_Des.Text = GetDataString("SELECT Des FROM Products_Prices WHERE Art=@Art",
                                 new string[] { "@Art", txt_Art.Text });
 
-                            // Get Type
-                            if (txt_Art.Text.Substring(0, 1) == "B" || txt_Art.Text.Substring(0, 1) == "A")
-                                cbox_Type.Text = "إكسسوار";
-                            else cbox_Type.Text = "حذاء";
+                            // Get Sup
+                            txt_Sup.Text = GetDataString("SELECT Sup FROM Products_Prices WHERE Art=@Art",
+                                new string[] { "@Art", txt_Art.Text });
                         }
                         catch
                         {
@@ -107,10 +79,6 @@ namespace Motaz_Store
                             txt_Art.Focus();
                             return;
                         }
-                    }
-                    else
-                    {
-
                     }
                 }
             };
@@ -369,12 +337,22 @@ namespace Motaz_Store
             {
                 if (E.KeyCode == Keys.Enter && !String.IsNullOrWhiteSpace(txt_Des.Text))
                 {
-                    Btn_Add.PerformClick();
+                    txt_Sup.Focus();
                     E.SuppressKeyPress = true;
                 }
                 else if (E.KeyCode == Keys.F8)
                 {
                     btn_DesAuto.PerformClick();
+                }
+            };
+
+            // Sup
+            // EnterClick
+            txt_Sup.KeyDown += (S, E) =>
+            {
+                if (E.KeyCode == Keys.Enter && !String.IsNullOrWhiteSpace(txt_Sup.Text))
+                {
+                    Btn_Add.PerformClick();
                 }
             };
 
@@ -388,10 +366,7 @@ namespace Motaz_Store
                 // Add New Product
                 RemoveReadOnly(txt_Price);
                 RemoveReadOnly(txt_Des);
-                cbox_Type.Items.Clear();
-                cbox_Type.Items.Add("حذاء"); cbox_Type.Items.Add("إكسسوار");
-                cbox_Type.SelectedIndex = 0;
-                cbox_Type.BackColor = Color.FromArgb(255, 244, 230);
+                RemoveReadOnly(txt_Sup);
 
             }
             else
@@ -399,9 +374,10 @@ namespace Motaz_Store
                 // Add Tekrar
                 MakeReadOnly(txt_Price, "0");
                 MakeReadOnly(txt_Des, "");
-                cbox_Type.Items.Clear();
-                cbox_Type.BackColor = Color.FromArgb(209, 178, 140);
+                MakeReadOnly(txt_Sup, "");
             }
+
+            txt_Art.Focus();
         }
 
         void MakeReadOnly(TextBox txt, string text)
@@ -476,6 +452,7 @@ namespace Motaz_Store
                 lbl_ShortDes.Hide();
                 lbl_ShortQty.Hide();
             }
+            txt_Art.Focus();
         }
 
         private void Btn_Add_Click(object sender, EventArgs e)
@@ -495,6 +472,8 @@ namespace Motaz_Store
             { txt_SizeTo.Focus(); msg.ShowError("قم بملئ البيانات أولا"); return; }
             if (String.IsNullOrWhiteSpace(txt_Des.Text))
             { txt_Des.Focus(); msg.ShowError("قم بملئ البيانات أولا"); return; }
+            if (String.IsNullOrWhiteSpace(txt_Sup.Text))
+            { txt_Sup.Focus(); msg.ShowError("قم بملئ البيانات أولا"); return; }
             #endregion
 
             // User Confirm
@@ -546,7 +525,12 @@ namespace Motaz_Store
                 if (isAvailable("SELECT * FROM Products_Prices WHERE Art=@Art", new string[] { "@Art", txt_Art.Text }))
                 {
                     if (!AskUser("هذا الأرتكل موجود لمنتج أخر\nسيتم تغيير أرتكل المنتج الأخر وأضافة هذا الأرتكل للمنتج الجحديد\n" +
-                        "هل توافق على ذلك؟ هذه العملية لا يمكن التراجع عنها", 'e')) return;
+                        "هل توافق على ذلك؟ هذه العملية لا يمكن التراجع عنها", 'e'))
+                    {
+                        trans.CloseTrans();
+                        return;
+                    }
+
                     else
                     {
                         // Insert New Art For The Old One
@@ -568,15 +552,23 @@ namespace Motaz_Store
                 else
                 {
                     // Get First Prist
-                    // TODO: F_Price Rate Based On UserValue
-                    int F_Price = Convert.ToInt32(txt_Price.Text) * 2 / 3;
+                    // F_Price Rate Based On UserValue
+                    // Get the gain if the first price = 100
+                    float GainOf100 = 100 * Forms.settings.GainRate;
+                    // Get the rate
+                    float GainRate = GainOf100 / (100 + GainOf100);
+                    // calc f_price based on the gain rate
+                    int F_Price = Convert.ToInt32(txt_Price.Text) - 
+                        Convert.ToInt32(Convert.ToDecimal(txt_Price.Text) * Convert.ToDecimal(GainRate));
                     // Round it to 5
-                    while(F_Price % 5 != 0)
+                    while (F_Price % 5 != 0)
                     {
                         F_Price++;
                     }
-                    trans.AddCmd("INSERT INTO Products_Prices(Art, Price, Descount, Des, F_Price) VALUES('" + txt_Art.Text +
-                        "', " + txt_Price.Text + ", 0, N'" + txt_Des.Text + "', " + F_Price + ")");
+
+                    // Add Product Details
+                    trans.AddCmd("INSERT INTO Products_Prices(Art, Price, Descount, Des, F_Price, Sup) VALUES('" + txt_Art.Text +
+                        "', " + txt_Price.Text + ", 0, N'" + txt_Des.Text + "', " + F_Price + ", N'" + txt_Sup.Text + "')");
                 }
                 #endregion
 
@@ -591,14 +583,25 @@ namespace Motaz_Store
                 if (tran != null)
                 {
                     // Error
-                    msg.ShowError("حدث خطأ أثناء إضافة المنتجات إلى قاعدة البيانات");
 
-                    // TODO: IF Admin Show Error
-                    MessageBox.Show(tran);
+                    if (Forms.settings.IsAdmin)
+                    {
+                        MessageBox.Show(tran);
+                    }
+                    else
+                    {
+                        msg.ShowError("حدث خطأ أثناء إضافة المنتجات إلى قاعدة البيانات");
+                    }
                 }
                 else
                 {
+                    // Print Barcode
+                    if(cb_PrintBarcode.Checked)
+                        printBarcode(sizes, txt_Art.Text, cbox_Color.Text, Convert.ToInt32(txt_Price.Text));
+
                     msg.ShowError("تم إضافة المنتجات بنجاح", true);
+                    rb_Again.Checked = true;
+                    txt_Art.Focus();
                     cbox_Color.Focus();
                 }
                 #endregion
@@ -626,9 +629,15 @@ namespace Motaz_Store
                 if (tran != null)
                 {
                     // Error
-                    msg.ShowError("حدث خطأ أثناء إضافة المنتجات إلى قاعدة البيانات");
 
-                    // TODO: IF Admin Show Error
+                    if (Forms.settings.IsAdmin)
+                    {
+                        MessageBox.Show(tran);
+                    }
+                    else
+                    {
+                        msg.ShowError("حدث خطأ أثناء إضافة المنتجات إلى قاعدة البيانات");
+                    }
                 }
                 else
                 {
@@ -636,6 +645,20 @@ namespace Motaz_Store
                     cbox_Color.Focus();
                 }
             }
+        }
+
+        private void Btn_Clear_Click(object sender, EventArgs e)
+        {
+            rb_New.Checked = true;
+            txt_Art.Text = "";
+            txt_Price.Text = "";
+            rb_SManual.Checked = true;
+            txt_Qty.Text = "";
+            txt_Size.Text = "";
+            txt_SizeFrom.Text = "";
+            txt_SizeTo.Text = "";
+            txt_Sup.Text = "";
+            txt_Des.Text = "";
         }
     }
 }

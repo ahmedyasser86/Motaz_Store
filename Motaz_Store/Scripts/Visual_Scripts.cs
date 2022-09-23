@@ -43,11 +43,27 @@ namespace Motaz_Store
             Line.Show();
         }
 
-        public static void FrmToPnl(Panel pnl, Form frm)
+        public static void FrmToPnl(Panel pnl, Form frm, Control toFocus = null, Control toFocus2 = null)
         {
             pnl.Controls.Clear();
             pnl.Controls.Add(frm);
             frm.Show();
+
+
+            // Open form focused on element
+            if(toFocus != null)
+            {
+                // 2 Choises
+                if(toFocus2 != null)
+                {
+                    if (toFocus.Visible) toFocus.Focus();
+                    else toFocus2.Focus();
+                }
+                else
+                {
+                    toFocus.Focus();
+                }
+            }
         }
 
         public static bool AskUser(string text, char type)

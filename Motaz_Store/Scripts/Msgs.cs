@@ -32,6 +32,7 @@ namespace Motaz_Store
 
         public void ShowError(string err, bool done = false)
         {
+            errorShow.Stop();
             if (done)
             {
                 Lbl.Text = err;
