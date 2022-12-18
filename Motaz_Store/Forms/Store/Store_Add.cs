@@ -27,6 +27,9 @@ namespace Motaz_Store
             // Get Colors From DB
             cbox_Color.DataSource = GetDataArray("SELECT * FROM Colors");
 
+            // Get Sups From DB
+            cbox_Sub.DataSource = GetDataArray("SELECT Name FROM Sups");
+
             // Error Msgs
             msg = new Msgs(lbl_Error);
 
@@ -69,16 +72,19 @@ namespace Motaz_Store
                                 new string[] { "@Art", txt_Art.Text });
 
                             // Get Sup
-                            txt_Sup.Text = GetDataString("SELECT Sup FROM Products_Prices WHERE Art=@Art",
+                            cbox_Sub.Text = GetDataString("SELECT Sup FROM Products_Prices WHERE Art=@Art",
                                 new string[] { "@Art", txt_Art.Text });
                         }
                         catch
                         {
                             msg.ShowError("لا يوجد منتجات بهذا الأرتكل!");
-                            txt_Art.Text = "";
-                            txt_Art.Focus();
+                            rb_New.Checked = true;
                             return;
                         }
+                    }
+                    else
+                    {
+                        txt_Art.Text = String.Join("", txt_Art.Text.Split(' '));
                     }
                 }
             };
@@ -337,7 +343,7 @@ namespace Motaz_Store
             {
                 if (E.KeyCode == Keys.Enter && !String.IsNullOrWhiteSpace(txt_Des.Text))
                 {
-                    txt_Sup.Focus();
+                    cbox_Sub.Focus();
                     E.SuppressKeyPress = true;
                 }
                 else if (E.KeyCode == Keys.F8)
@@ -348,9 +354,9 @@ namespace Motaz_Store
 
             // Sup
             // EnterClick
-            txt_Sup.KeyDown += (S, E) =>
+            cbox_Sub.KeyDown += (S, E) =>
             {
-                if (E.KeyCode == Keys.Enter && !String.IsNullOrWhiteSpace(txt_Sup.Text))
+                if (E.KeyCode == Keys.Enter)
                 {
                     Btn_Add.PerformClick();
                 }
@@ -366,7 +372,6 @@ namespace Motaz_Store
                 // Add New Product
                 RemoveReadOnly(txt_Price);
                 RemoveReadOnly(txt_Des);
-                RemoveReadOnly(txt_Sup);
 
             }
             else
@@ -374,7 +379,6 @@ namespace Motaz_Store
                 // Add Tekrar
                 MakeReadOnly(txt_Price, "0");
                 MakeReadOnly(txt_Des, "");
-                MakeReadOnly(txt_Sup, "");
             }
 
             txt_Art.Focus();
@@ -472,8 +476,6 @@ namespace Motaz_Store
             { txt_SizeTo.Focus(); msg.ShowError("قم بملئ البيانات أولا"); return; }
             if (String.IsNullOrWhiteSpace(txt_Des.Text))
             { txt_Des.Focus(); msg.ShowError("قم بملئ البيانات أولا"); return; }
-            if (String.IsNullOrWhiteSpace(txt_Sup.Text))
-            { txt_Sup.Focus(); msg.ShowError("قم بملئ البيانات أولا"); return; }
             #endregion
 
             // User Confirm
@@ -538,7 +540,12 @@ namespace Motaz_Store
                         while (isAvailable("SELECT * FROM Products_Prices WHERE Art=@Art", new string[] { "@Art", Art }))
                             Art += "O";
 
-                        trans.AddCmd("INSERT INTO Products_Prices(Art, Price, Descount, Des) VALUES('" + Art + "', 0, 0, 'Old')");
+                        // Old Product Details
+                        List<string> old_details = GetDataArray("SELECT Price, Descount, Des, Sup, F_Price FROM Products_Prices WHERE Art=@Art", 5,
+                            new string[] { "@Art", txt_Art.Text });
+
+                        trans.AddCmd("INSERT INTO Products_Prices(Art, Price, Descount, Des, sup, F_Price) VALUES('" + Art + "', " + old_details[0] +
+                            ", " + old_details[1] + ", N'" + old_details[2] + "', N'" + old_details[3] + "', " + old_details[4] + ")");
 
                         // Update The Old Products To Their new Art
                         trans.AddCmd("UPDATE Products SET Art='" + Art + "' WHERE Art=@Art"
@@ -568,7 +575,7 @@ namespace Motaz_Store
 
                     // Add Product Details
                     trans.AddCmd("INSERT INTO Products_Prices(Art, Price, Descount, Des, F_Price, Sup) VALUES('" + txt_Art.Text +
-                        "', " + txt_Price.Text + ", 0, N'" + txt_Des.Text + "', " + F_Price + ", N'" + txt_Sup.Text + "')");
+                        "', " + txt_Price.Text + ", 0, N'" + txt_Des.Text + "', " + F_Price + ", N'" + cbox_Sub.Text + "')");
                 }
                 #endregion
 
@@ -641,6 +648,10 @@ namespace Motaz_Store
                 }
                 else
                 {
+                    // Print Barcode
+                    if (cb_PrintBarcode.Checked)
+                        printBarcode(sizes, txt_Art.Text, cbox_Color.Text, Convert.ToInt32(txt_Price.Text));
+
                     msg.ShowError("تم إضافة المنتجات بنجاح", true);
                     cbox_Color.Focus();
                 }
@@ -657,7 +668,6 @@ namespace Motaz_Store
             txt_Size.Text = "";
             txt_SizeFrom.Text = "";
             txt_SizeTo.Text = "";
-            txt_Sup.Text = "";
             txt_Des.Text = "";
         }
     }

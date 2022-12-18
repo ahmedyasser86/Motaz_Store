@@ -110,7 +110,6 @@
             this.btn_Online.TabIndex = 4;
             this.btn_Online.Text = "الأون لاين";
             this.btn_Online.UseVisualStyleBackColor = true;
-            this.btn_Online.Visible = false;
             this.btn_Online.Click += new System.EventHandler(this.Top_Btns_CLick);
             // 
             // btn_Today

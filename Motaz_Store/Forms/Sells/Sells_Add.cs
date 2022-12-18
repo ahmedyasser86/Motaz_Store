@@ -471,8 +471,9 @@ namespace Motaz_Store
             {
                 foreach (DataGridViewRow r in dgv_Sells.Rows)
                 {
-                    trans.AddCmd("INSERT INTO Online(P_ID, Qty, Seller, Date_Time) VALUES(" + r.Cells["Code"].Value
-                        + ", " + r.Cells["Qty"].Value + ", N'" + cbox_Seller.Text + "', '" + DateTime.Now + "')");
+                    trans.AddCmd("INSERT INTO Online(P_ID, Qty, Seller, Date_Time, Price, Dis, Des) VALUES(" + r.Cells["Code"].Value
+                        + ", " + r.Cells["Qty"].Value + ", N'" + cbox_Seller.Text + "', '" + DateTime.Now + "', " + r.Cells["Price"].Value
+                        + ", " + r.Cells["Discount"].Value + ", N'" + r.Cells["Product"].Value + "')");
                 }
             }
 
@@ -487,7 +488,6 @@ namespace Motaz_Store
                     paid = Convert.ToInt32(txt_Paid.Text);
                 await Task.Run(() => { bill.Print_Bill(paid); });   
             }
-
 
             // Save
             string tran = trans.StartTrans();

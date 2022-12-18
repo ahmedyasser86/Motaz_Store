@@ -15,6 +15,7 @@ namespace Motaz_Store
     {
         Msgs msg;
         int qty = 1;
+        bool showdeleted = false;
         public Store_Other()
         {
             InitializeComponent();
@@ -175,29 +176,34 @@ namespace Motaz_Store
                 + "', '" + DateTime.Now + "', " + price + ")"))
             {
                 msg.ShowError("تم تحويل المنتج بنجاح", true);
-                Task.Run(() => { btn_Refresh.PerformClick(); });
 
-                // Calc Total if Manager
-                if (Session.isManager)
-                {
-                    pnl_Total.Show();
-                    int t = 0;
-                    foreach (DataGridViewRow r in dgv_Withdraws.Rows)
+                Task.Run(() => {
+                    btn_Refresh.PerformClick();
+
+                    // Calc Total if Manager
+                    if (Session.isManager)
                     {
-                        t += Convert.ToInt32(r.Cells["السعر"].Value);
+                        pnl_Total.Show();
+                        int t = 0;
+                        foreach (DataGridViewRow r in dgv_Withdraws.Rows)
+                        {
+                            t += Convert.ToInt32(r.Cells["السعر"].Value);
+                        }
+                        txt_Total.Text = t.ToString();
                     }
-                    txt_Total.Text = t.ToString();
-                }
+                });
             }
         }
 
         private void Btn_Refresh_Click(object sender, EventArgs e)
         {
             LoadDataFromDB();
+            showdeleted = false;
         }
 
         private void Btn_Delete_Click(object sender, EventArgs e)
         {
+            if (showdeleted) return;
             // Ask User
             if(!Visual_Scripts.AskUser("هل انت متأكد من أنك تريد أرشفة التحولات؟\nهذه العملية لا يمكن التراجع عنها", 'q') || 
                 !Session.isManager)
@@ -222,6 +228,7 @@ namespace Motaz_Store
         private void Btn_ShowDeleted_Click(object sender, EventArgs e)
         {
             LoadDataFromDB("AND w.Status = 0");
+            showdeleted = true;
         }
     }
 }

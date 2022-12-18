@@ -100,6 +100,7 @@ namespace Motaz_Store
             string b_id = null;
             int Total = 0;
             string Des = "";
+            int counter = 1;
             foreach (DataRow r in dt.Rows)
             {
                 if (b_id == null || b_id == r[0].ToString())
@@ -111,19 +112,20 @@ namespace Motaz_Store
                 else
                 {
                     DataGridViewRow rg = new DataGridViewRow();
-                    rg.CreateCells(dgv_Sells, Total, Des.Substring(0, Des.Length - 2), b_id);
+                    rg.CreateCells(dgv_Sells, counter, Total, Des.Substring(0, Des.Length - 2), b_id);
                     dgv_Sells.Rows.Add(rg);
 
                     b_id = r[0].ToString();
                     Total = Convert.ToInt32(r[1]);
                     Des = r[2] + " " + r[3].ToString().Substring(2) + "، ";
+                    counter++;
                 }
             }
             if (dt.Rows.Count > 0)
             {
                 // Add The Last Row
                 DataGridViewRow rg2 = new DataGridViewRow();
-                rg2.CreateCells(dgv_Sells, Total, Des.Substring(0, Des.Length - 2), b_id);
+                rg2.CreateCells(dgv_Sells, counter, Total, Des.Substring(0, Des.Length - 2), b_id);
                 dgv_Sells.Rows.Add(rg2);
             }
 
@@ -168,7 +170,7 @@ namespace Motaz_Store
             int Erad = 0;
             foreach (DataGridViewRow r in dgv_Sells.Rows)
             {
-                Erad += Convert.ToInt32(r.Cells[0].Value);
+                Erad += Convert.ToInt32(r.Cells[1].Value);
             }
             lbl_Erad.Text = Erad.ToString();
 
@@ -295,7 +297,7 @@ namespace Motaz_Store
 
         private void Dgv_Sells_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex == 2)
+            if (e.ColumnIndex == 3)
             {
                 Forms.sells_Del.txt_BillID.Text = dgv_Sells.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                 Forms.sells.btn_Del.PerformClick();
@@ -327,6 +329,21 @@ namespace Motaz_Store
                 Forms.endDay.lbl_Total.Text = lbl_Total.Text;
                 Forms.endDay.lbl_ToHome.Text = lbl_Total.Text;
                 Forms.sells.OpenEndDay();
+            }
+        }
+
+        private void Btn_Erad_Click(object sender, EventArgs e)
+        {
+            if(tlp_Details.Visible)
+            {
+                // Hide
+                tlp_Details.Hide();
+                btn_Erad.Text = "عرض الإيراد";
+            }
+            else
+            {
+                tlp_Details.Show();
+                btn_Erad.Text = "إخفاء الإيراد";
             }
         }
     }

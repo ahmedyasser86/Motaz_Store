@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ch_Pass = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_Error = new System.Windows.Forms.Label();
             this.lbl_pass = new System.Windows.Forms.Label();
@@ -41,7 +43,6 @@
             this.txt_user = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ch_Pass = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -80,6 +81,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(363, 566);
             this.panel1.TabIndex = 2;
+            // 
+            // ch_Pass
+            // 
+            this.ch_Pass.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ch_Pass.AutoSize = true;
+            this.ch_Pass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ch_Pass.Font = new System.Drawing.Font("Cairo SemiBold", 8F, System.Drawing.FontStyle.Bold);
+            this.ch_Pass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
+            this.ch_Pass.Location = new System.Drawing.Point(126, 363);
+            this.ch_Pass.Name = "ch_Pass";
+            this.ch_Pass.Size = new System.Drawing.Size(111, 24);
+            this.ch_Pass.TabIndex = 26;
+            this.ch_Pass.Text = "إظهار كلمة المرور";
+            this.ch_Pass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ch_Pass.UseVisualStyleBackColor = true;
+            this.ch_Pass.CheckedChanged += new System.EventHandler(this.Ch_Pass_CheckedChanged);
             // 
             // panel2
             // 
@@ -222,22 +239,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // ch_Pass
-            // 
-            this.ch_Pass.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ch_Pass.AutoSize = true;
-            this.ch_Pass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ch_Pass.Font = new System.Drawing.Font("Cairo SemiBold", 8F, System.Drawing.FontStyle.Bold);
-            this.ch_Pass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
-            this.ch_Pass.Location = new System.Drawing.Point(126, 363);
-            this.ch_Pass.Name = "ch_Pass";
-            this.ch_Pass.Size = new System.Drawing.Size(111, 24);
-            this.ch_Pass.TabIndex = 26;
-            this.ch_Pass.Text = "إظهار كلمة المرور";
-            this.ch_Pass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ch_Pass.UseVisualStyleBackColor = true;
-            this.ch_Pass.CheckedChanged += new System.EventHandler(this.Ch_Pass_CheckedChanged);
-            // 
             // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 24F);
@@ -246,6 +247,7 @@
             this.ClientSize = new System.Drawing.Size(844, 572);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Cairo SemiBold", 9.749999F, System.Drawing.FontStyle.Bold);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(860, 611);

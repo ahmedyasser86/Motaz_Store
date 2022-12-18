@@ -47,6 +47,9 @@ namespace Motaz_Store
                 case "btn_Adv":
                     FrmToPnl(Pnl_Holder, settings_Adv);
                     break;
+                case "btn_Bika":
+                    FrmToPnl(Pnl_Holder, settings_Bika);
+                    break;
             }
         }
     }

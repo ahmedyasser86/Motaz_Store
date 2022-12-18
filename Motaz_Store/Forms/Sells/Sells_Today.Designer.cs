@@ -37,7 +37,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_Error = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.pnl_Custom = new System.Windows.Forms.Panel();
+            this.dtp_Date = new System.Windows.Forms.DateTimePicker();
+            this.btn_CustomDay = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -54,7 +60,13 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgv_Exs = new System.Windows.Forms.DataGridView();
+            this.ex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.des = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_Sells = new System.Windows.Forms.DataGridView();
+            this.counter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.details = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bill = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_Times = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,7 +83,7 @@
             this.panel17 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlp_Details = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_Safe = new System.Windows.Forms.Label();
             this.lbl_Erad = new System.Windows.Forms.Label();
             this.lbl_Exs = new System.Windows.Forms.Label();
@@ -80,20 +92,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.details = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bill = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_Refresh = new System.Windows.Forms.Button();
-            this.pnl_Custom = new System.Windows.Forms.Panel();
-            this.btn_CustomDay = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.dtp_Date = new System.Windows.Forms.DateTimePicker();
-            this.ex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.des = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_Erad = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.pnl_Custom.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -105,8 +108,7 @@
             this.panel18.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel21.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.pnl_Custom.SuspendLayout();
+            this.tlp_Details.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -144,6 +146,22 @@
             this.panel12.Size = new System.Drawing.Size(92, 56);
             this.panel12.TabIndex = 1;
             // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(202)))), ((int)(((byte)(168)))));
+            this.btn_Refresh.FlatAppearance.BorderSize = 0;
+            this.btn_Refresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(178)))), ((int)(((byte)(140)))));
+            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Refresh.Font = new System.Drawing.Font("Cairo SemiBold", 11F, System.Drawing.FontStyle.Bold);
+            this.btn_Refresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
+            this.btn_Refresh.Location = new System.Drawing.Point(10, 11);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(73, 34);
+            this.btn_Refresh.TabIndex = 28;
+            this.btn_Refresh.Text = "تحديث";
+            this.btn_Refresh.UseVisualStyleBackColor = false;
+            this.btn_Refresh.Click += new System.EventHandler(this.Btn_Refresh_Click);
+            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.pnl_Custom);
@@ -155,6 +173,70 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(458, 56);
             this.panel5.TabIndex = 0;
+            // 
+            // pnl_Custom
+            // 
+            this.pnl_Custom.Controls.Add(this.dtp_Date);
+            this.pnl_Custom.Controls.Add(this.btn_CustomDay);
+            this.pnl_Custom.Controls.Add(this.label5);
+            this.pnl_Custom.Controls.Add(this.panel14);
+            this.pnl_Custom.Location = new System.Drawing.Point(5, 5);
+            this.pnl_Custom.Name = "pnl_Custom";
+            this.pnl_Custom.Size = new System.Drawing.Size(315, 46);
+            this.pnl_Custom.TabIndex = 25;
+            // 
+            // dtp_Date
+            // 
+            this.dtp_Date.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
+            this.dtp_Date.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.dtp_Date.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.dtp_Date.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
+            this.dtp_Date.CustomFormat = "yy.MM.dd_ddd";
+            this.dtp_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_Date.Location = new System.Drawing.Point(76, 6);
+            this.dtp_Date.Name = "dtp_Date";
+            this.dtp_Date.Size = new System.Drawing.Size(131, 32);
+            this.dtp_Date.TabIndex = 18;
+            // 
+            // btn_CustomDay
+            // 
+            this.btn_CustomDay.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_CustomDay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(202)))), ((int)(((byte)(168)))));
+            this.btn_CustomDay.FlatAppearance.BorderSize = 0;
+            this.btn_CustomDay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(178)))), ((int)(((byte)(140)))));
+            this.btn_CustomDay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_CustomDay.Font = new System.Drawing.Font("Cairo SemiBold", 11F, System.Drawing.FontStyle.Bold);
+            this.btn_CustomDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
+            this.btn_CustomDay.Location = new System.Drawing.Point(3, 6);
+            this.btn_CustomDay.Name = "btn_CustomDay";
+            this.btn_CustomDay.Size = new System.Drawing.Size(67, 34);
+            this.btn_CustomDay.TabIndex = 29;
+            this.btn_CustomDay.Text = "عرض";
+            this.btn_CustomDay.UseVisualStyleBackColor = false;
+            this.btn_CustomDay.Click += new System.EventHandler(this.Btn_CustomDay_Click);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.label5.Font = new System.Drawing.Font("Cairo SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(213, 8);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(99, 30);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "عرض يوم أخر";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel14
+            // 
+            this.panel14.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
+            this.panel14.Location = new System.Drawing.Point(76, 40);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(131, 2);
+            this.panel14.TabIndex = 22;
             // 
             // panel3
             // 
@@ -386,6 +468,18 @@
             this.dgv_Exs.Size = new System.Drawing.Size(219, 302);
             this.dgv_Exs.TabIndex = 5;
             // 
+            // ex
+            // 
+            this.ex.HeaderText = "المبلغ";
+            this.ex.Name = "ex";
+            this.ex.ReadOnly = true;
+            // 
+            // des
+            // 
+            this.des.HeaderText = "البيان";
+            this.des.Name = "des";
+            this.des.ReadOnly = true;
+            // 
             // dgv_Sells
             // 
             this.dgv_Sells.AllowUserToAddRows = false;
@@ -403,6 +497,7 @@
             this.dgv_Sells.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv_Sells.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Sells.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.counter,
             this.amount,
             this.details,
             this.bill});
@@ -425,6 +520,38 @@
             this.dgv_Sells.Size = new System.Drawing.Size(294, 405);
             this.dgv_Sells.TabIndex = 4;
             this.dgv_Sells.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dgv_Sells_CellMouseDoubleClick);
+            // 
+            // counter
+            // 
+            this.counter.FillWeight = 50F;
+            this.counter.HeaderText = "م";
+            this.counter.Name = "counter";
+            this.counter.ReadOnly = true;
+            // 
+            // amount
+            // 
+            this.amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.amount.FillWeight = 80F;
+            this.amount.HeaderText = "المبلغ";
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
+            this.amount.Width = 79;
+            // 
+            // details
+            // 
+            this.details.FillWeight = 203.7037F;
+            this.details.HeaderText = "التفاصيل";
+            this.details.Name = "details";
+            this.details.ReadOnly = true;
+            // 
+            // bill
+            // 
+            this.bill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.bill.FillWeight = 65F;
+            this.bill.HeaderText = "الفاتورة";
+            this.bill.Name = "bill";
+            this.bill.ReadOnly = true;
+            this.bill.Width = 64;
             // 
             // dgv_Times
             // 
@@ -497,10 +624,11 @@
             this.tpl_Ex.Controls.Add(this.panel18, 0, 5);
             this.tpl_Ex.Controls.Add(this.panel16, 0, 2);
             this.tpl_Ex.Controls.Add(this.label12, 0, 1);
+            this.tpl_Ex.Controls.Add(this.btn_Erad, 0, 11);
             this.tpl_Ex.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tpl_Ex.Location = new System.Drawing.Point(236, 53);
             this.tpl_Ex.Name = "tpl_Ex";
-            this.tpl_Ex.RowCount = 11;
+            this.tpl_Ex.RowCount = 12;
             this.tpl_Ex.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tpl_Ex.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tpl_Ex.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
@@ -512,7 +640,7 @@
             this.tpl_Ex.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692544F));
             this.tpl_Ex.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.92237F));
             this.tpl_Ex.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tpl_Ex.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tpl_Ex.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tpl_Ex.Size = new System.Drawing.Size(181, 302);
             this.tpl_Ex.TabIndex = 13;
             // 
@@ -525,7 +653,7 @@
             this.btn_EndDay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_EndDay.Font = new System.Drawing.Font("Cairo SemiBold", 12F, System.Drawing.FontStyle.Bold);
             this.btn_EndDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.btn_EndDay.Location = new System.Drawing.Point(26, 259);
+            this.btn_EndDay.Location = new System.Drawing.Point(26, 217);
             this.btn_EndDay.Name = "btn_EndDay";
             this.btn_EndDay.Size = new System.Drawing.Size(128, 40);
             this.btn_EndDay.TabIndex = 29;
@@ -542,7 +670,7 @@
             this.Btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Add.Font = new System.Drawing.Font("Cairo SemiBold", 11F, System.Drawing.FontStyle.Bold);
             this.Btn_Add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
-            this.Btn_Add.Location = new System.Drawing.Point(41, 174);
+            this.Btn_Add.Location = new System.Drawing.Point(41, 168);
             this.Btn_Add.Name = "Btn_Add";
             this.Btn_Add.Size = new System.Drawing.Size(99, 34);
             this.Btn_Add.TabIndex = 28;
@@ -556,7 +684,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
             this.label6.Font = new System.Drawing.Font("Cairo SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(62, 88);
+            this.label6.Location = new System.Drawing.Point(62, 85);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label6.Size = new System.Drawing.Size(56, 30);
@@ -569,7 +697,7 @@
             this.panel18.Controls.Add(this.txt_Des);
             this.panel18.Controls.Add(this.panel19);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel18.Location = new System.Drawing.Point(3, 121);
+            this.panel18.Location = new System.Drawing.Point(3, 118);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(175, 44);
             this.panel18.TabIndex = 26;
@@ -645,36 +773,37 @@
             // panel21
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel21, 5);
-            this.panel21.Controls.Add(this.tableLayoutPanel3);
+            this.panel21.Controls.Add(this.tlp_Details);
             this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel21.Location = new System.Drawing.Point(8, 364);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(637, 94);
             this.panel21.TabIndex = 15;
             // 
-            // tableLayoutPanel3
+            // tlp_Details
             // 
-            this.tableLayoutPanel3.ColumnCount = 4;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.Controls.Add(this.lbl_Safe, 3, 1);
-            this.tableLayoutPanel3.Controls.Add(this.lbl_Erad, 2, 1);
-            this.tableLayoutPanel3.Controls.Add(this.lbl_Exs, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.lbl_Total, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label7, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label8, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label9, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label10, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(637, 94);
-            this.tableLayoutPanel3.TabIndex = 0;
+            this.tlp_Details.ColumnCount = 4;
+            this.tlp_Details.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlp_Details.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlp_Details.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlp_Details.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlp_Details.Controls.Add(this.lbl_Safe, 3, 1);
+            this.tlp_Details.Controls.Add(this.lbl_Erad, 2, 1);
+            this.tlp_Details.Controls.Add(this.lbl_Exs, 1, 1);
+            this.tlp_Details.Controls.Add(this.lbl_Total, 0, 1);
+            this.tlp_Details.Controls.Add(this.label7, 3, 0);
+            this.tlp_Details.Controls.Add(this.label8, 2, 0);
+            this.tlp_Details.Controls.Add(this.label9, 1, 0);
+            this.tlp_Details.Controls.Add(this.label10, 0, 0);
+            this.tlp_Details.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlp_Details.Location = new System.Drawing.Point(0, 0);
+            this.tlp_Details.Name = "tlp_Details";
+            this.tlp_Details.RowCount = 2;
+            this.tlp_Details.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlp_Details.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlp_Details.Size = new System.Drawing.Size(637, 94);
+            this.tlp_Details.TabIndex = 0;
+            this.tlp_Details.Visible = false;
             // 
             // lbl_Safe
             // 
@@ -788,122 +917,22 @@
             this.label10.Text = "الدرج";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // amount
+            // btn_Erad
             // 
-            this.amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.amount.FillWeight = 80F;
-            this.amount.HeaderText = "المبلغ";
-            this.amount.Name = "amount";
-            this.amount.ReadOnly = true;
-            this.amount.Width = 79;
-            // 
-            // details
-            // 
-            this.details.FillWeight = 150F;
-            this.details.HeaderText = "التفاصيل";
-            this.details.Name = "details";
-            this.details.ReadOnly = true;
-            // 
-            // bill
-            // 
-            this.bill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.bill.FillWeight = 65F;
-            this.bill.HeaderText = "الفاتورة";
-            this.bill.Name = "bill";
-            this.bill.ReadOnly = true;
-            this.bill.Width = 64;
-            // 
-            // btn_Refresh
-            // 
-            this.btn_Refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(202)))), ((int)(((byte)(168)))));
-            this.btn_Refresh.FlatAppearance.BorderSize = 0;
-            this.btn_Refresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(178)))), ((int)(((byte)(140)))));
-            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Refresh.Font = new System.Drawing.Font("Cairo SemiBold", 11F, System.Drawing.FontStyle.Bold);
-            this.btn_Refresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
-            this.btn_Refresh.Location = new System.Drawing.Point(10, 11);
-            this.btn_Refresh.Name = "btn_Refresh";
-            this.btn_Refresh.Size = new System.Drawing.Size(73, 34);
-            this.btn_Refresh.TabIndex = 28;
-            this.btn_Refresh.Text = "تحديث";
-            this.btn_Refresh.UseVisualStyleBackColor = false;
-            this.btn_Refresh.Click += new System.EventHandler(this.Btn_Refresh_Click);
-            // 
-            // pnl_Custom
-            // 
-            this.pnl_Custom.Controls.Add(this.dtp_Date);
-            this.pnl_Custom.Controls.Add(this.btn_CustomDay);
-            this.pnl_Custom.Controls.Add(this.label5);
-            this.pnl_Custom.Controls.Add(this.panel14);
-            this.pnl_Custom.Location = new System.Drawing.Point(5, 5);
-            this.pnl_Custom.Name = "pnl_Custom";
-            this.pnl_Custom.Size = new System.Drawing.Size(315, 46);
-            this.pnl_Custom.TabIndex = 25;
-            // 
-            // btn_CustomDay
-            // 
-            this.btn_CustomDay.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_CustomDay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(202)))), ((int)(((byte)(168)))));
-            this.btn_CustomDay.FlatAppearance.BorderSize = 0;
-            this.btn_CustomDay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(178)))), ((int)(((byte)(140)))));
-            this.btn_CustomDay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_CustomDay.Font = new System.Drawing.Font("Cairo SemiBold", 11F, System.Drawing.FontStyle.Bold);
-            this.btn_CustomDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
-            this.btn_CustomDay.Location = new System.Drawing.Point(3, 6);
-            this.btn_CustomDay.Name = "btn_CustomDay";
-            this.btn_CustomDay.Size = new System.Drawing.Size(67, 34);
-            this.btn_CustomDay.TabIndex = 29;
-            this.btn_CustomDay.Text = "عرض";
-            this.btn_CustomDay.UseVisualStyleBackColor = false;
-            this.btn_CustomDay.Click += new System.EventHandler(this.Btn_CustomDay_Click);
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.label5.Font = new System.Drawing.Font("Cairo SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(213, 8);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(99, 30);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "عرض يوم أخر";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel14
-            // 
-            this.panel14.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
-            this.panel14.Location = new System.Drawing.Point(76, 40);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(131, 2);
-            this.panel14.TabIndex = 22;
-            // 
-            // dtp_Date
-            // 
-            this.dtp_Date.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
-            this.dtp_Date.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.dtp_Date.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.dtp_Date.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
-            this.dtp_Date.CustomFormat = "yy.MM.dd_ddd";
-            this.dtp_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_Date.Location = new System.Drawing.Point(76, 6);
-            this.dtp_Date.Name = "dtp_Date";
-            this.dtp_Date.Size = new System.Drawing.Size(131, 32);
-            this.dtp_Date.TabIndex = 18;
-            // 
-            // ex
-            // 
-            this.ex.HeaderText = "المبلغ";
-            this.ex.Name = "ex";
-            this.ex.ReadOnly = true;
-            // 
-            // des
-            // 
-            this.des.HeaderText = "البيان";
-            this.des.Name = "des";
-            this.des.ReadOnly = true;
+            this.btn_Erad.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Erad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(202)))), ((int)(((byte)(168)))));
+            this.btn_Erad.FlatAppearance.BorderSize = 0;
+            this.btn_Erad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(178)))), ((int)(((byte)(140)))));
+            this.btn_Erad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Erad.Font = new System.Drawing.Font("Cairo SemiBold", 11F, System.Drawing.FontStyle.Bold);
+            this.btn_Erad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
+            this.btn_Erad.Location = new System.Drawing.Point(43, 264);
+            this.btn_Erad.Name = "btn_Erad";
+            this.btn_Erad.Size = new System.Drawing.Size(95, 34);
+            this.btn_Erad.TabIndex = 28;
+            this.btn_Erad.Text = "عرض الإيراد";
+            this.btn_Erad.UseVisualStyleBackColor = false;
+            this.btn_Erad.Click += new System.EventHandler(this.Btn_Erad_Click);
             // 
             // Sells_Today
             // 
@@ -923,6 +952,8 @@
             this.panel12.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.pnl_Custom.ResumeLayout(false);
+            this.pnl_Custom.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
@@ -940,10 +971,8 @@
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             this.panel21.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.pnl_Custom.ResumeLayout(false);
-            this.pnl_Custom.PerformLayout();
+            this.tlp_Details.ResumeLayout(false);
+            this.tlp_Details.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -985,7 +1014,6 @@
         private System.Windows.Forms.Button btn_EndDay;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label lbl_Safe;
         private System.Windows.Forms.Label lbl_Erad;
         private System.Windows.Forms.Label lbl_Exs;
@@ -996,9 +1024,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn time;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn details;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bill;
         public System.Windows.Forms.Button btn_Refresh;
         private System.Windows.Forms.Panel pnl_Custom;
         private System.Windows.Forms.Button btn_CustomDay;
@@ -1007,5 +1032,11 @@
         private System.Windows.Forms.DateTimePicker dtp_Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn ex;
         private System.Windows.Forms.DataGridViewTextBoxColumn des;
+        private System.Windows.Forms.DataGridViewTextBoxColumn counter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn details;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bill;
+        public System.Windows.Forms.TableLayoutPanel tlp_Details;
+        private System.Windows.Forms.Button btn_Erad;
     }
 }

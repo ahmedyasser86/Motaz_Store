@@ -49,6 +49,7 @@ namespace Motaz_Store
                 {
                     case "Today":
                         sells.OpenToday();
+                        sells_Today.tlp_Details.Hide();
                         break;
                 }
             }

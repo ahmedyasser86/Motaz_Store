@@ -84,9 +84,9 @@
             this.txt_Art = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_Sup = new System.Windows.Forms.TextBox();
             this.panel14 = new System.Windows.Forms.Panel();
             this.btn_Clear = new System.Windows.Forms.Button();
+            this.cbox_Sub = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -653,16 +653,19 @@
             // 
             this.cbox_Color.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbox_Color.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.cbox_Color.DropDownHeight = 200;
             this.cbox_Color.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbox_Color.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbox_Color.Font = new System.Drawing.Font("Cairo SemiBold", 13.5F, System.Drawing.FontStyle.Bold);
             this.cbox_Color.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
             this.cbox_Color.FormattingEnabled = true;
+            this.cbox_Color.IntegralHeight = false;
             this.cbox_Color.Items.AddRange(new object[] {
             "أبيض",
             "أسود",
             "أحمر"});
             this.cbox_Color.Location = new System.Drawing.Point(289, 1);
+            this.cbox_Color.MaxDropDownItems = 5;
             this.cbox_Color.Name = "cbox_Color";
             this.cbox_Color.Size = new System.Drawing.Size(271, 41);
             this.cbox_Color.TabIndex = 2;
@@ -806,8 +809,8 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.cbox_Sub);
             this.panel6.Controls.Add(this.label2);
-            this.panel6.Controls.Add(this.txt_Sup);
             this.panel6.Controls.Add(this.panel14);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 321);
@@ -828,19 +831,6 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "المورد :";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txt_Sup
-            // 
-            this.txt_Sup.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_Sup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.txt_Sup.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_Sup.Font = new System.Drawing.Font("Cairo SemiBold", 17F, System.Drawing.FontStyle.Bold);
-            this.txt_Sup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
-            this.txt_Sup.Location = new System.Drawing.Point(290, 1);
-            this.txt_Sup.Name = "txt_Sup";
-            this.txt_Sup.Size = new System.Drawing.Size(271, 43);
-            this.txt_Sup.TabIndex = 6;
-            this.txt_Sup.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel14
             // 
@@ -868,6 +858,27 @@
             this.btn_Clear.Text = "تفريغ الحقول";
             this.btn_Clear.UseVisualStyleBackColor = false;
             this.btn_Clear.Click += new System.EventHandler(this.Btn_Clear_Click);
+            // 
+            // cbox_Sub
+            // 
+            this.cbox_Sub.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbox_Sub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.cbox_Sub.DropDownHeight = 200;
+            this.cbox_Sub.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbox_Sub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbox_Sub.Font = new System.Drawing.Font("Cairo SemiBold", 13.5F, System.Drawing.FontStyle.Bold);
+            this.cbox_Sub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
+            this.cbox_Sub.FormattingEnabled = true;
+            this.cbox_Sub.IntegralHeight = false;
+            this.cbox_Sub.Items.AddRange(new object[] {
+            "أبيض",
+            "أسود",
+            "أحمر"});
+            this.cbox_Sub.Location = new System.Drawing.Point(290, 3);
+            this.cbox_Sub.MaxDropDownItems = 5;
+            this.cbox_Sub.Name = "cbox_Sub";
+            this.cbox_Sub.Size = new System.Drawing.Size(271, 41);
+            this.cbox_Sub.TabIndex = 2;
             // 
             // Store_Add
             // 
@@ -971,11 +982,11 @@
         private System.Windows.Forms.Label lbl_ShortArt;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_Sup;
         private System.Windows.Forms.Panel panel14;
         public System.Windows.Forms.TextBox txt_Art;
         private System.Windows.Forms.Button Btn_Add;
         private System.Windows.Forms.CheckBox cb_PrintBarcode;
         private System.Windows.Forms.Button btn_Clear;
+        private System.Windows.Forms.ComboBox cbox_Sub;
     }
 }

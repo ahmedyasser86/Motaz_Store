@@ -59,6 +59,14 @@
             this.txt_Seller = new System.Windows.Forms.TextBox();
             this.btn_SellerDelete = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.btn_SupAdd = new System.Windows.Forms.Button();
+            this.btn_SupDelete = new System.Windows.Forms.Button();
+            this.txt_Sup = new System.Windows.Forms.TextBox();
+            this.panel17 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -70,6 +78,9 @@
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel12.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -78,16 +89,18 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.lbl_Error, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.panel14, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_Error, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -486,6 +499,111 @@
             this.panel11.Size = new System.Drawing.Size(217, 2);
             this.panel11.TabIndex = 18;
             // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.label5);
+            this.panel14.Controls.Add(this.panel15);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(23, 363);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(911, 119);
+            this.panel14.TabIndex = 19;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(229)))), ((int)(((byte)(213)))));
+            this.label5.Font = new System.Drawing.Font("Cairo SemiBold", 13F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(113)))), ((int)(((byte)(44)))));
+            this.label5.Location = new System.Drawing.Point(818, 1);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(82, 33);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "الموردين";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(202)))), ((int)(((byte)(168)))));
+            this.panel15.Controls.Add(this.panel16);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel15.Location = new System.Drawing.Point(0, 21);
+            this.panel15.Name = "panel15";
+            this.panel15.Padding = new System.Windows.Forms.Padding(2);
+            this.panel15.Size = new System.Drawing.Size(911, 98);
+            this.panel15.TabIndex = 1;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(229)))), ((int)(((byte)(213)))));
+            this.panel16.Controls.Add(this.btn_SupAdd);
+            this.panel16.Controls.Add(this.btn_SupDelete);
+            this.panel16.Controls.Add(this.txt_Sup);
+            this.panel16.Controls.Add(this.panel17);
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel16.Location = new System.Drawing.Point(2, 2);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(907, 94);
+            this.panel16.TabIndex = 1;
+            // 
+            // btn_SupAdd
+            // 
+            this.btn_SupAdd.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_SupAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(202)))), ((int)(((byte)(168)))));
+            this.btn_SupAdd.FlatAppearance.BorderSize = 0;
+            this.btn_SupAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(178)))), ((int)(((byte)(140)))));
+            this.btn_SupAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_SupAdd.Font = new System.Drawing.Font("Cairo SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_SupAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
+            this.btn_SupAdd.Location = new System.Drawing.Point(548, 24);
+            this.btn_SupAdd.Name = "btn_SupAdd";
+            this.btn_SupAdd.Size = new System.Drawing.Size(79, 38);
+            this.btn_SupAdd.TabIndex = 2;
+            this.btn_SupAdd.Text = "إضافة";
+            this.btn_SupAdd.UseVisualStyleBackColor = false;
+            this.btn_SupAdd.Click += new System.EventHandler(this.Btn_SupAdd_Click);
+            // 
+            // btn_SupDelete
+            // 
+            this.btn_SupDelete.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_SupDelete.AutoSize = true;
+            this.btn_SupDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
+            this.btn_SupDelete.FlatAppearance.BorderSize = 0;
+            this.btn_SupDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_SupDelete.Font = new System.Drawing.Font("Cairo SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_SupDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.btn_SupDelete.Location = new System.Drawing.Point(463, 23);
+            this.btn_SupDelete.Name = "btn_SupDelete";
+            this.btn_SupDelete.Size = new System.Drawing.Size(79, 40);
+            this.btn_SupDelete.TabIndex = 3;
+            this.btn_SupDelete.Text = "حذف";
+            this.btn_SupDelete.UseVisualStyleBackColor = false;
+            this.btn_SupDelete.Click += new System.EventHandler(this.Btn_SupDelete_Click);
+            // 
+            // txt_Sup
+            // 
+            this.txt_Sup.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txt_Sup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.txt_Sup.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Sup.Font = new System.Drawing.Font("Cairo SemiBold", 13F, System.Drawing.FontStyle.Bold);
+            this.txt_Sup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
+            this.txt_Sup.Location = new System.Drawing.Point(662, 27);
+            this.txt_Sup.Name = "txt_Sup";
+            this.txt_Sup.Size = new System.Drawing.Size(217, 33);
+            this.txt_Sup.TabIndex = 1;
+            this.txt_Sup.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel17
+            // 
+            this.panel17.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
+            this.panel17.Location = new System.Drawing.Point(662, 60);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(217, 2);
+            this.panel17.TabIndex = 18;
+            // 
             // Settings_General
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 24F);
@@ -517,6 +635,11 @@
             this.panel9.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -554,5 +677,13 @@
         private System.Windows.Forms.RadioButton rb_Store;
         private System.Windows.Forms.RadioButton rb_Online;
         private System.Windows.Forms.Label lbl_Error;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Button btn_SupAdd;
+        private System.Windows.Forms.Button btn_SupDelete;
+        public System.Windows.Forms.TextBox txt_Sup;
+        private System.Windows.Forms.Panel panel17;
     }
 }

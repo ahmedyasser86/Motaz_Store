@@ -35,7 +35,7 @@ namespace Motaz_Store
                 "LEFT JOIN Products p ON p.Art = pp.Art LEFT JOIN Online o ON o.P_ID = p.ID " +
                 "LEFT JOIN (SELECT SUM(Qty) Qty, P_ID FROM Sells GROUP BY P_ID) s ON s.P_ID = p.ID " +
                 "LEFT JOIN (SELECT SUM(Qty) Qty, P_ID FROM WithDraws GROUP BY P_ID) w ON w.P_ID = p.ID WHERE (p.Qty - ISNULL(s.QTY, 0) - ISNULL(w.Qty, 0) - ISNULL(o.Qty, 0)) != 0 " +
-                "GROUP BY p.Color, pp.Art, pp.Des, pp.Sup", dgv_Sells);
+                "GROUP BY p.Color, pp.Art, pp.Des, pp.Sup ORDER BY pp.Art", dgv_Sells);
 
             // Load Data From DB
             All_Sorts = Pro_Des.GetAllDes();
@@ -200,7 +200,8 @@ namespace Motaz_Store
                         "(p.Qty - ISNULL(s.QTY, 0) - ISNULL(w.Qty, 0) - ISNULL(o.Qty, 0)) الكمية, (pp.Price - pp.Descount) 'سعر البيع'," +
                         " pp.Sup المورد FROM Products_Prices pp LEFT JOIN Products p ON p.Art = pp.Art LEFT JOIN Online o ON o.P_ID = p.ID" +
                         " LEFT JOIN (SELECT SUM(Qty) Qty, P_ID FROM Sells GROUP BY P_ID) s ON s.P_ID = p.ID " +
-                        "LEFT JOIN (SELECT SUM(Qty) Qty, P_ID FROM WithDraws GROUP BY P_ID) w ON w.P_ID = p.ID " + w;
+                        "LEFT JOIN (SELECT SUM(Qty) Qty, P_ID FROM WithDraws GROUP BY P_ID) w ON w.P_ID = p.ID " + w +
+                        " ORDER BY pp.Art, p.Color, p.Size";
                 }
                 else
                 {
@@ -209,7 +210,7 @@ namespace Motaz_Store
                         "FROM Products_Prices pp LEFT JOIN Products p ON p.Art = pp.Art LEFT JOIN Online o ON o.P_ID = p.ID " +
                         "LEFT JOIN (SELECT SUM(Qty) Qty, P_ID FROM Sells GROUP BY P_ID) s ON s.P_ID = p.ID " +
                         "LEFT JOIN (SELECT SUM(Qty) Qty, P_ID FROM WithDraws GROUP BY P_ID) w ON w.P_ID = p.ID " + w +
-                        " GROUP BY p.Color, pp.Art, pp.Des, pp.Sup";
+                        " GROUP BY p.Color, pp.Art, pp.Des, pp.Sup ORDER BY pp.Art";
                 }
                 DGVs(q, dgv_Sells, Params.ToArray());
             }
@@ -230,7 +231,7 @@ namespace Motaz_Store
                 "LEFT JOIN (SELECT SUM(Qty) Qty, P_ID FROM Sells GROUP BY P_ID) s ON s.P_ID = p.ID " +
                 "LEFT JOIN (SELECT SUM(Qty) Qty, P_ID FROM WithDraws GROUP BY P_ID) w ON w.P_ID = p.ID " +
                 "WHERE (p.Qty - ISNULL(s.QTY, 0) - ISNULL(w.Qty, 0) - ISNULL(o.Qty, 0)) != 0 " +
-                "GROUP BY p.Color, pp.Art, pp.Des, pp.Sup", dgv_Sells);
+                "GROUP BY p.Color, pp.Art, pp.Des, pp.Sup ORDER BY pp.Art", dgv_Sells);
 
             // Load Data From DB
             All_Sorts = Pro_Des.GetAllDes();
@@ -262,7 +263,7 @@ namespace Motaz_Store
                 " pp.Sup المورد FROM Products_Prices pp LEFT JOIN Products p ON p.Art = pp.Art " +
                 "LEFT JOIN Online o ON o.P_ID = p.ID LEFT JOIN (SELECT SUM(Qty) Qty, P_ID FROM Sells GROUP BY P_ID) s ON s.P_ID = p.ID " +
                 "LEFT JOIN (SELECT SUM(Qty) Qty, P_ID FROM WithDraws GROUP BY P_ID) w ON w.P_ID = p.ID " +
-                "WHERE p.Art = @Art";
+                "WHERE p.Art = @Art ORDER BY pp.Art, p.Color, p.Size";
             DGVs(search, dgv_Sells, new string[] { "@Art", txt_Art.Text });
 
             // Load Type

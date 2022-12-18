@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_Error = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -39,11 +39,6 @@
             this.txt_Total = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.dgv_Withdraws = new System.Windows.Forms.DataGridView();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.btn_ShowDeleted = new System.Windows.Forms.Button();
-            this.btn_Delete = new System.Windows.Forms.Button();
-            this.btn_Refresh = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.pnl_Art = new System.Windows.Forms.Panel();
             this.cbox_Color = new System.Windows.Forms.ComboBox();
@@ -62,15 +57,20 @@
             this.ch_Code = new System.Windows.Forms.CheckBox();
             this.btn_Search = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.dgv_Online = new System.Windows.Forms.DataGridView();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.btn_ShowDeleted = new System.Windows.Forms.Button();
+            this.btn_Delete = new System.Windows.Forms.Button();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnl_Total.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Withdraws)).BeginInit();
-            this.panel14.SuspendLayout();
             this.panel11.SuspendLayout();
             this.pnl_Art.SuspendLayout();
             this.pnl_Code.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Online)).BeginInit();
+            this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -182,7 +182,7 @@
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.panel11, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.dgv_Withdraws, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.dgv_Online, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.panel14, 0, 2);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 67);
@@ -195,102 +195,6 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(957, 460);
             this.tableLayoutPanel4.TabIndex = 9;
-            // 
-            // dgv_Withdraws
-            // 
-            this.dgv_Withdraws.AllowUserToAddRows = false;
-            this.dgv_Withdraws.AllowUserToDeleteRows = false;
-            this.dgv_Withdraws.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_Withdraws.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.dgv_Withdraws.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(202)))), ((int)(((byte)(168)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cairo SemiBold", 9.749999F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Withdraws.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_Withdraws.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cairo SemiBold", 9.749999F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Withdraws.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_Withdraws.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_Withdraws.EnableHeadersVisualStyles = false;
-            this.dgv_Withdraws.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(155)))), ((int)(((byte)(120)))));
-            this.dgv_Withdraws.Location = new System.Drawing.Point(13, 108);
-            this.dgv_Withdraws.Name = "dgv_Withdraws";
-            this.dgv_Withdraws.ReadOnly = true;
-            this.dgv_Withdraws.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgv_Withdraws.RowHeadersVisible = false;
-            this.dgv_Withdraws.Size = new System.Drawing.Size(931, 284);
-            this.dgv_Withdraws.TabIndex = 6;
-            // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.btn_ShowDeleted);
-            this.panel14.Controls.Add(this.btn_Delete);
-            this.panel14.Controls.Add(this.btn_Refresh);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(13, 398);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(931, 54);
-            this.panel14.TabIndex = 7;
-            // 
-            // btn_ShowDeleted
-            // 
-            this.btn_ShowDeleted.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_ShowDeleted.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(202)))), ((int)(((byte)(168)))));
-            this.btn_ShowDeleted.FlatAppearance.BorderSize = 0;
-            this.btn_ShowDeleted.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(178)))), ((int)(((byte)(140)))));
-            this.btn_ShowDeleted.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ShowDeleted.Font = new System.Drawing.Font("Cairo SemiBold", 13F, System.Drawing.FontStyle.Bold);
-            this.btn_ShowDeleted.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
-            this.btn_ShowDeleted.Location = new System.Drawing.Point(232, 6);
-            this.btn_ShowDeleted.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
-            this.btn_ShowDeleted.Name = "btn_ShowDeleted";
-            this.btn_ShowDeleted.Size = new System.Drawing.Size(144, 42);
-            this.btn_ShowDeleted.TabIndex = 23;
-            this.btn_ShowDeleted.Text = "إظهار الممسوح";
-            this.btn_ShowDeleted.UseVisualStyleBackColor = false;
-            // 
-            // btn_Delete
-            // 
-            this.btn_Delete.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_Delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
-            this.btn_Delete.FlatAppearance.BorderSize = 0;
-            this.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Delete.Font = new System.Drawing.Font("Cairo SemiBold", 13F, System.Drawing.FontStyle.Bold);
-            this.btn_Delete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.btn_Delete.Location = new System.Drawing.Point(109, 6);
-            this.btn_Delete.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
-            this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(105, 42);
-            this.btn_Delete.TabIndex = 23;
-            this.btn_Delete.Text = "مسح الكل";
-            this.btn_Delete.UseVisualStyleBackColor = false;
-            // 
-            // btn_Refresh
-            // 
-            this.btn_Refresh.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_Refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(202)))), ((int)(((byte)(168)))));
-            this.btn_Refresh.FlatAppearance.BorderSize = 0;
-            this.btn_Refresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(178)))), ((int)(((byte)(140)))));
-            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Refresh.Font = new System.Drawing.Font("Cairo SemiBold", 13F, System.Drawing.FontStyle.Bold);
-            this.btn_Refresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
-            this.btn_Refresh.Location = new System.Drawing.Point(8, 6);
-            this.btn_Refresh.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
-            this.btn_Refresh.Name = "btn_Refresh";
-            this.btn_Refresh.Size = new System.Drawing.Size(83, 42);
-            this.btn_Refresh.TabIndex = 23;
-            this.btn_Refresh.Text = "تحديث";
-            this.btn_Refresh.UseVisualStyleBackColor = false;
             // 
             // panel11
             // 
@@ -499,6 +403,7 @@
             this.ch_Code.Text = "إدخال عن طريق الارتكل";
             this.ch_Code.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.ch_Code.UseVisualStyleBackColor = true;
+            this.ch_Code.CheckedChanged += new System.EventHandler(this.Ch_Code_CheckedChanged);
             // 
             // btn_Search
             // 
@@ -515,6 +420,7 @@
             this.btn_Search.TabIndex = 21;
             this.btn_Search.Text = "بحث";
             this.btn_Search.UseVisualStyleBackColor = false;
+            this.btn_Search.Click += new System.EventHandler(this.Btn_Search_Click);
             // 
             // panel13
             // 
@@ -525,6 +431,106 @@
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(935, 2);
             this.panel13.TabIndex = 17;
+            // 
+            // dgv_Online
+            // 
+            this.dgv_Online.AllowUserToAddRows = false;
+            this.dgv_Online.AllowUserToDeleteRows = false;
+            this.dgv_Online.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_Online.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.dgv_Online.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(202)))), ((int)(((byte)(168)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Cairo SemiBold", 9.749999F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Online.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgv_Online.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Cairo SemiBold", 9.749999F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(59)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Online.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgv_Online.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Online.EnableHeadersVisualStyles = false;
+            this.dgv_Online.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(155)))), ((int)(((byte)(120)))));
+            this.dgv_Online.Location = new System.Drawing.Point(13, 108);
+            this.dgv_Online.Name = "dgv_Online";
+            this.dgv_Online.ReadOnly = true;
+            this.dgv_Online.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dgv_Online.RowHeadersVisible = false;
+            this.dgv_Online.Size = new System.Drawing.Size(931, 284);
+            this.dgv_Online.TabIndex = 6;
+            this.dgv_Online.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Online_CellContentClick);
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.btn_ShowDeleted);
+            this.panel14.Controls.Add(this.btn_Delete);
+            this.panel14.Controls.Add(this.btn_Refresh);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(13, 398);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(931, 54);
+            this.panel14.TabIndex = 7;
+            // 
+            // btn_ShowDeleted
+            // 
+            this.btn_ShowDeleted.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_ShowDeleted.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(202)))), ((int)(((byte)(168)))));
+            this.btn_ShowDeleted.FlatAppearance.BorderSize = 0;
+            this.btn_ShowDeleted.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(178)))), ((int)(((byte)(140)))));
+            this.btn_ShowDeleted.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ShowDeleted.Font = new System.Drawing.Font("Cairo SemiBold", 13F, System.Drawing.FontStyle.Bold);
+            this.btn_ShowDeleted.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
+            this.btn_ShowDeleted.Location = new System.Drawing.Point(232, 6);
+            this.btn_ShowDeleted.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
+            this.btn_ShowDeleted.Name = "btn_ShowDeleted";
+            this.btn_ShowDeleted.Size = new System.Drawing.Size(144, 42);
+            this.btn_ShowDeleted.TabIndex = 23;
+            this.btn_ShowDeleted.Text = "إظهار الممسوح";
+            this.btn_ShowDeleted.UseVisualStyleBackColor = false;
+            this.btn_ShowDeleted.Click += new System.EventHandler(this.Btn_ShowDeleted_Click);
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_Delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
+            this.btn_Delete.FlatAppearance.BorderSize = 0;
+            this.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Delete.Font = new System.Drawing.Font("Cairo SemiBold", 13F, System.Drawing.FontStyle.Bold);
+            this.btn_Delete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.btn_Delete.Location = new System.Drawing.Point(109, 6);
+            this.btn_Delete.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(105, 42);
+            this.btn_Delete.TabIndex = 23;
+            this.btn_Delete.Text = "مسح الكل";
+            this.btn_Delete.UseVisualStyleBackColor = false;
+            this.btn_Delete.Click += new System.EventHandler(this.Btn_Delete_Click);
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_Refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(202)))), ((int)(((byte)(168)))));
+            this.btn_Refresh.FlatAppearance.BorderSize = 0;
+            this.btn_Refresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(178)))), ((int)(((byte)(140)))));
+            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Refresh.Font = new System.Drawing.Font("Cairo SemiBold", 13F, System.Drawing.FontStyle.Bold);
+            this.btn_Refresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(25)))), ((int)(((byte)(2)))));
+            this.btn_Refresh.Location = new System.Drawing.Point(8, 6);
+            this.btn_Refresh.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(83, 42);
+            this.btn_Refresh.TabIndex = 23;
+            this.btn_Refresh.Text = "تحديث";
+            this.btn_Refresh.UseVisualStyleBackColor = false;
+            this.btn_Refresh.Click += new System.EventHandler(this.Btn_Refresh_Click);
             // 
             // Sells_Online
             // 
@@ -546,14 +552,14 @@
             this.pnl_Total.ResumeLayout(false);
             this.pnl_Total.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Withdraws)).EndInit();
-            this.panel14.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.pnl_Art.ResumeLayout(false);
             this.pnl_Art.PerformLayout();
             this.pnl_Code.ResumeLayout(false);
             this.pnl_Code.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Online)).EndInit();
+            this.panel14.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -569,7 +575,7 @@
         public System.Windows.Forms.TextBox txt_Total;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.DataGridView dgv_Withdraws;
+        private System.Windows.Forms.DataGridView dgv_Online;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button btn_ShowDeleted;
         private System.Windows.Forms.Button btn_Delete;

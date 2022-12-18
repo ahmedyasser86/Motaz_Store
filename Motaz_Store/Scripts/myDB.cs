@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Data;
-using IronBarCode;
+using Zen.Barcode;
+using System.Drawing;
+using System.IO;
 
 namespace Motaz_Store
 {
@@ -239,8 +241,9 @@ namespace Motaz_Store
 
                 return mybill;
             }
-            catch
+            catch (Exception e)
             {
+                MessageBox.Show(e.Message);
                 return null;
             }
         }
@@ -345,6 +348,29 @@ namespace Motaz_Store
             catch
             {
                 return false;
+            }
+        }
+
+        public static string CmdExcuteMSG(string Query, string[] Params = null)
+        {
+            SqlCommand cmd = new SqlCommand(Query, conn);
+
+            if (Params != null)
+            {
+                for (int i = 0; i < Params.Length; i += 2)
+                {
+                    cmd.Parameters.AddWithValue(Params[i], Params[i + 1]);
+                }
+            }
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return null;
+            }
+            catch (Exception e)
+            {
+                return e.Message;
             }
         }
 
@@ -531,23 +557,25 @@ namespace Motaz_Store
 
             public void Clean_Products()
             {
-                int i = 1;
-                foreach(Product p in Products)
+                for(int i = 0; i < Products.Count; i++)
                 {
-                    for(int j = i; j < Products.Count; j++)
+                    int x = 0;
+                    for(int j = i + 1; j < Products.Count; j++)
                     {
-                        if(Products[j].Code == p.Code)
+                        if(Products[i].Code == Products[j].Code)
                         {
-                            p.Qty += Products[j].Qty;
-                            Products.Remove(Products[j]);
+                            Products[i].Qty += Products[j].Qty;
+                            Products.RemoveAt(j);
+                            x++;
                             j--;
-                            i--;
                         }
                     }
-                    i++;
+                    i -= x;
                 }
-                foreach (Product p in Products)
-                    if (p.Qty == 0) Products.Remove(p);
+                for (int i = 0; i < Products.Count; i++)
+                {
+                    if (Products[i].Qty == 0) { Products.RemoveAt(i); i--; }
+                }
             }
 
             public void Print_Bill(int paid)
@@ -573,16 +601,17 @@ namespace Motaz_Store
                 if (paid > 0) baqy = paid - total;
                 else { paid = total; baqy = 0; }
 
-                var Barcode = BarcodeWriter.CreateBarcode(ID.ToString(), BarcodeWriterEncoding.Code128);
-
                 rd.Details.AddDetailsRow(qty.ToString(), total_dis.ToString(), total.ToString(), paid.ToString(), baqy.ToString(),
-                    Casher, Seller, Session.inDay, ID.ToString(), Barcode.ToJpegBinaryData());
+                    Casher, Seller, Session.inDay, ID.ToString(), GenerateBarcode(ID));
 
                 Reports.Reports.Receipt rr = new Reports.Reports.Receipt();
                 rr.SetDataSource(rd);
                 rr.PrintOptions.PrinterName = Forms.settings_Adv.Recipt_Printer;
                 rr.PrintToPrinter(1, false, 0, 0);
+                rr.Close();
+                rr.Dispose();
             }
+
         }
 
         public class Sizes
@@ -600,6 +629,21 @@ namespace Motaz_Store
         #endregion
 
         #region Other
+
+        public static byte[] GenerateBarcode(int code)
+        {
+            Code128BarcodeDraw barcode = BarcodeDrawFactory.Code128WithChecksum;
+            Image img = barcode.Draw(code.ToString(), 50);
+
+            byte[] bar;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                bar = ms.ToArray();
+            }
+
+            return bar;
+        }
 
         public static void printBarcode(List<Sizes> sizes, string art, string color, int price)
         {
@@ -622,14 +666,16 @@ namespace Motaz_Store
             // Print BarCode
             Task.Run(() => {
                 Reports.DataSets.BarCode ds = new Reports.DataSets.BarCode();
-                var bar = BarcodeWriter.CreateBarcode(code.ToString(), BarcodeWriterEncoding.Code128);
-                ds.DataTable1.AddDataTable1Row(bar.ToJpegBinaryData(), code.ToString(), art.Insert(2, " "), color, 
+
+                ds.DataTable1.AddDataTable1Row(GenerateBarcode(code), code.ToString(), art.Insert(2, " "), color,
                     size.ToString(), price.ToString() + " LE");
 
                 Reports.Reports.BarCode b = new Reports.Reports.BarCode();
                 b.SetDataSource(ds);
                 b.PrintOptions.PrinterName = Forms.settings_Adv.Barcode_Printer;
                 b.PrintToPrinter(1, false, 0, 0);
+                b.Close();
+                b.Dispose();
             });
         }
 
