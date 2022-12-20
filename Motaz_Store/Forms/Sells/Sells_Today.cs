@@ -293,6 +293,7 @@ namespace Motaz_Store
         {
             string date = dtp_Date.Value.ToString("yy.MM.dd_ddd");
             LoadDay(date);
+            tlp_Details.Show();
         }
 
         private void Dgv_Sells_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

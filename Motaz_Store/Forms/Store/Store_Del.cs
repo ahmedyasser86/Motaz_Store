@@ -312,5 +312,12 @@ namespace Motaz_Store
             }
             #endregion
         }
+
+        private void Btn_refresh_Click(object sender, EventArgs e)
+        {
+            txt_Art.Text = "";
+            Art = "";
+            txt_Art.Focus();
+        }
     }
 }

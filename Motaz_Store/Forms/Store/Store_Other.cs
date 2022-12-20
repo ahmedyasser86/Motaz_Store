@@ -177,21 +177,19 @@ namespace Motaz_Store
             {
                 msg.ShowError("تم تحويل المنتج بنجاح", true);
 
-                Task.Run(() => {
-                    btn_Refresh.PerformClick();
+                btn_Refresh.PerformClick();
 
-                    // Calc Total if Manager
-                    if (Session.isManager)
+                // Calc Total if Manager
+                if (Session.isManager)
+                {
+                    pnl_Total.Show();
+                    int t = 0;
+                    foreach (DataGridViewRow r in dgv_Withdraws.Rows)
                     {
-                        pnl_Total.Show();
-                        int t = 0;
-                        foreach (DataGridViewRow r in dgv_Withdraws.Rows)
-                        {
-                            t += Convert.ToInt32(r.Cells["السعر"].Value);
-                        }
-                        txt_Total.Text = t.ToString();
+                        t += Convert.ToInt32(r.Cells["السعر"].Value);
                     }
-                });
+                    txt_Total.Text = t.ToString();
+                }
             }
         }
 
